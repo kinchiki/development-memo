@@ -1,6 +1,7 @@
 ## float
 overflow-hiddenよりclearfixの方が良い？
 
+
 ## paddingとmarginの使い分け
 - marginの縦の相殺を使いたいとき
 - ネガティブマージンを使いたい margin
@@ -73,11 +74,12 @@ thとtdは同じ階層である。
 
 
 ## インライン要素の中央寄せ
-`親要素に`text-align: center;`
+### 1
+親要素に`text-align: center;`
 
+### 2
+ブロック要素にして中央寄せ
 ```
 display: block;
 margin: auto;
 ```
-
-ブロック要素にして中央寄せ
