@@ -54,7 +54,7 @@ oddは奇数、evenは偶数
 - inline-block
 - flex
 
-縦並びにするには`block`にするとかflexなら`flex-direction:column`にするなど
+縦並びにするには`display:block`にするとか`flex-direction:column`にするなど
 
 
 
@@ -83,3 +83,13 @@ thとtdは同じ階層である。
 display: block;
 margin: auto;
 ```
+
+
+## flex
+
+### justify-content,-webkit-justify-content
+
+1. 均等配置 端隙間無し
+    - `space-between`
+1. 均等配置 端隙間あり
+    - `space-around`

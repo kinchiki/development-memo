@@ -1,3 +1,29 @@
+## stash
+一時退避
+
+リスト表示
+```
+git stash list
+```
+
+変更内容も見れる
+```
+git stash list -p
+```
+
+変更の復活と削除
+```
+git stash pop
+```
+
+
+
+## 直前のコミットに戻る（コミット後の変更を消す）
+```
+git reset --hard HEAD
+```
+
+
 ## git addした後に変更点を見る
 ```git diff --cached```
 
