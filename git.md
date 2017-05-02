@@ -2,6 +2,7 @@
 一時退避
 
 リスト表示
+ハッシュ、コミットメッセージはstash時のHEADのもの
 ```
 git stash list
 ```
@@ -11,9 +12,29 @@ git stash list
 git stash list -p
 ```
 
+詳しく見る
+```
+git stash show <stash名>
+```
+
+復活させる
+```
+git stash apply stash@{番号}
+```
+
+stash削除
+```
+git stash drop <stash名>
+```
+
 変更の復活と削除
 ```
-git stash pop
+git stash pop stash@{番号}
+```
+
+変更復活を取り消す
+```
+git stash show <適用したstash名> -p | git apply -R
 ```
 
 
