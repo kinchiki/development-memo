@@ -33,3 +33,15 @@ update テーブル名 set カラム = 値 where 条件
 - _ 任意の一文字
 
 `NOT LIKE`で含まない
+
+
+## DISTINCT, ALL
+重複業を除外してデータ取得
+
+```
+SELECT DISTINCT name FROM goods;
+```
+
+nameカラムの重複するデータは除外して取得
+
+allは重複含めて全て取得
