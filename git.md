@@ -1,3 +1,22 @@
+## 未追跡ファイルを削除（コミット後の編集を消す）
+動作確認
+```
+git clean -n
+```
+
+実行
+```
+git clean -f
+```
+
+
+
+## 追跡ブランチ削除
+```
+git branch -d -r origin/消すブランチ
+```
+
+
 ## stash
 一時退避
 
@@ -103,7 +122,7 @@ git revert ハッシュ値
 作業ブランチで
 
 ```
-git rebase プルリク先のローカルブランチ？
+git rebase プルリク先のブランチ
 ```
 
 conflictを直してadd
