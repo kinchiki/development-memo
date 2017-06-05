@@ -20,3 +20,12 @@ obj.attributes = params[:model]
 ```
 rails generate controller manage/○○
 ```
+
+
+## concern
+共通処理を切り出す
+
+ActiveSupport
+
+- mix-inの複雑な記述を省略できる
+- 複雑な依存関係を考えずにすむ
