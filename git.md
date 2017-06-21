@@ -1,3 +1,11 @@
+## ファイルの変更の削除
+```
+git checkout -- ファイル
+```
+
+↑のコマンドは`git status`に出てくる
+
+
 ## 2つ以上前のコミットを編集する
 ```
 git rebase -i HEAD~x
@@ -12,6 +20,7 @@ git commit --amend
 
 ```
 git rebase --continue
+git push -f
 ```
 
 して終了。
