@@ -29,3 +29,9 @@ ActiveSupport
 
 - mix-inの複雑な記述を省略できる
 - 複雑な依存関係を考えずにすむ
+
+
+## 特定のディレクトリのfixtureファイルを読み込む
+```
+rake db:fixtures:load FIXTURES_PATH=ファイルやディレクトリのパス
+```
