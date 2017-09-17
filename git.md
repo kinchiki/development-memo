@@ -61,6 +61,7 @@ git push -f
 
 して終了。
 
+
 ## 未追跡ファイルを削除（コミット後の編集を消す）
 動作確認
 ```
@@ -71,7 +72,6 @@ git clean -n
 ```
 git clean -f
 ```
-
 
 
 ## 追跡ブランチ削除
@@ -120,7 +120,6 @@ git stash show <適用したstash名> -p | git apply -R
 ```
 
 
-
 ## 一つ前のコミットに戻る（直前のコミットを消す）
 ```
 git reset --hard HEAD
@@ -137,7 +136,6 @@ git diff --cached
 - `git rm --cached [ファイルパス]`
 
 ファイルパスの省略でインデックスのファイル全て
-
 
 
 ## リモーリポジトリの変更
@@ -162,7 +160,7 @@ git push -u origin master
 
 
 ## push
-- u 追跡オプション `git pusn -u origin MJ-xxx`
+- u 追跡オプション `git pusn -u origin カレントブランチ名`
 
 
 ## commitの取り消し、打ち消し
@@ -189,8 +187,7 @@ git rebase プルリク先のブランチ
 ```
 
 conflictを直してadd
-git rebase --continue か
-git rebase --skip
+`git rebase --continue` か `git rebase --skip`
 
 git diffでコンフリクト箇所がわかる
 
@@ -198,4 +195,16 @@ git diffでコンフリクト箇所がわかる
 
 最後は `git push -f`
 
-**なんか死んでpullしたときとかは、git commitだけのコンフリクト解消コミットをする**
+**なにか死んでpullしたときとかは、git commitだけのコンフリクト解消コミットをする**
+
+### merge
+merge先のブランチをトピックブランチにmergeする。
+
+```
+git merge releaseブランチなど
+```
+
+## リモートで消えたブランチをローカルからも消す
+```
+git fetch --prune
+```
