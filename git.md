@@ -1,3 +1,23 @@
+## 間違えてプルリクをmasterにマージしてしまいrevertしたとき
+マージ元 topic
+本来のマージ先 release-x.x
+master topicをrevert済み
+とする
+
+↓は若干違うかも
+
+```
+git checkout topic
+git checkout [topicの最初のコミットの一つ前のコミットハッシュ]
+git checkout -b topic_2
+git merge --squash topic
+git push -u origin topic_2
+```
+
+これで`topic_2`を`release-x.x`にマージ先としてプルリクを作成する。
+そうすれば`master`に`topic`の差分が生まれる。
+
+
 ## git add -p
 - y：このハンクをステージングする
 - n：スキップする
