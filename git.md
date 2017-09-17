@@ -17,6 +17,14 @@ git push -u origin topic_2
 これで`topic_2`を`release-x.x`にマージ先としてプルリクを作成する。
 そうすれば`master`に`topic`の差分が生まれる。
 
+↓でよいかも？
+
+```
+git rebase -i HEAD~x
+まとめる最後のpickをsquashに変更
+git push -f
+```
+
 
 ## git add -p
 - y：このハンクをステージングする
