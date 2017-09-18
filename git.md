@@ -127,6 +127,22 @@ git stash pop stash@{番号}
 git stash show <適用したstash名> -p | git apply -R
 ```
 
+### zshの場合
+zshはstashを指定するときにシングルクォーテーションやダブルクォーテーションで囲むか、`{`と`}`をバックスラッシュでエスケープしないとエラーになります。
+
+```
+'stash@{x}'
+"stash@{x}"
+stash@\{x\}
+```
+
+これはエラー
+
+```
+$ git stash drop stash@{x}
+=> stash@x is not a valid reference
+```
+
 
 ## 一つ前のコミットに戻る（直前のコミットを消す）
 ```
