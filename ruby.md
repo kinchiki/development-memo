@@ -1,3 +1,30 @@
+## クラスメソッド（self.method名とか）
+インスタンスなしで実行可能なメソッド。
+`クラス名.メソッド名`で実行可能。
+
+```ruby
+# その1
+class Hage
+  def self.hege
+    puts "hege"
+  end
+end
+Hage.hege # => hege
+
+# その2
+# class << self 内で定義する
+class Hage
+  class << self
+    def hege
+      puts "hege"
+    end
+  end
+end
+Hage.hege # => hege
+```
+
+参考：[Rubyのクラスメソッドとインスタンスメソッドの例](https://qiita.com/tbpgr/items/56eb65c0ea5882abbb07)
+
 ## 引数
 ### *
 配列となる
