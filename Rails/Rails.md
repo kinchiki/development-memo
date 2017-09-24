@@ -1,6 +1,14 @@
-## Rails基本
+## renderとpartial
 `render '◯◯'`
-とかだったら同じフォルダの`_◯◯`を呼び出す
+とかだったら同じフォルダのpartial（ファイル名が`_◯◯`）を呼び出す
+
+## renderとredirect_to
+### render
+アクションを経由しない。
+インスタンス変数を書き換えたくないときなどに使用。
+
+### redirect/to
+アクションを経由する
 
 
 ## attribute
