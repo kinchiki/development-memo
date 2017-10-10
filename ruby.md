@@ -1,3 +1,8 @@
+## positive?
+レシーバが 0 より大きい場合に true 、そうでない場合に false を返す
+
+https://docs.ruby-lang.org/ja/latest/method/Numeric/i/positive=3f.html
+
 ## クラスメソッド（self.method名とか）
 インスタンスなしで実行可能なメソッド。
 `クラス名.メソッド名`で実行可能。
