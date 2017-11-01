@@ -1,3 +1,46 @@
+## couldn't find file 'webpack-bundle' with type 'application/javascript' で死ぬ
+### 結論
+こんな感じのコマンド叩けばよい？
+
+```npm run build:development```
+
+### 探り方
+`package.json` の `scripts` 見る
+
+例えば以下
+```json
+  "scripts": {
+    "postinstall": "cd client && npm install",
+    "rails-server": "bundle exec foreman start -f Procfile.dev",
+    "hot-dev": "bundle exec foreman start client -f Procfile.hot && bundle exec foreman start -f Procfile.hot -m all=1,client=0",
+    "test": "rspec",
+    "eslint": "eslint client/Couplink/libs/"
+  },
+```
+
+`Procfile.dev` の `client` を見る
+
+例えば以下
+```
+client: sh -c 'rm app/assets/webpack/* || true && cd client && npm run build:development'
+```
+
+`client/package.json` の `scripts` 見る
+
+例えば以下
+```
+  "scripts": {
+    "build:test": "webpack --config webpack.config.js",
+    "build:production": "NODE_ENV=production webpack --config webpack.config.js",
+    "build:development": "webpack -w --config webpack.config.js",
+    "build:development:once": "webpack --config webpack.config.js",
+    "build:hot": "webpack-dev-server --config webpack.hot.config --progress",
+    "test": "jest",
+    "test:watch": "npm test -- --watch"
+  },
+```
+
+
 ## imagemagick をアップデートして rmagick を入れ直す
 ### 画像アップロードが失敗する（エラー画面にはならない）
 ```
