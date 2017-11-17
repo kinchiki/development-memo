@@ -51,5 +51,6 @@ rake db:fixtures:load FIXTURES_PATH=ファイルやディレクトリのパス
 
 
 ## スマホからlocalに接続
+1. `rails s -b 0.0.0.0`
 1. 同じWifiに接続
 1. `PCのIPアドレス:3000`を直打ち
