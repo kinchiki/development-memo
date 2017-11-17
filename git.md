@@ -1,3 +1,31 @@
+## なにも変更していないのになぜか git pull が失敗
+```
+$ git pull
+error: Your local changes to the following files would be overwritten by checkout:
+	config/environments/development.rb
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+$ git stash
+No local changes to save
+```
+
+ブランチなんか作って対象ファイルを削除してコミットしたらできた
+
+```
+$ git co -b hoge
+$ git rm 対象ファイル
+$ git commit -am なんかコメント
+$ g co master
+```
+
+
 ## 間違えてプルリクをmasterにマージしてしまいrevertしたとき
 マージ元 topic
 本来のマージ先 release-x.x
