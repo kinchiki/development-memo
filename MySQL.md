@@ -22,3 +22,17 @@ ERROR! The server quit without updating PID file (/usr/local/var/mysql/○○.lo
 ↓
 sudo touch /usr/local/var/mysql/○○.local.pid
 ```
+
+## バックアップとリストア
+オプションの次にスペースは入れない
+http://weblabo.oscasierra.net/mysql-mysqldump-01/
+
+### エクスポート
+```
+mysqldump -u[ユーザー名] -p[パスワード] -r [バックアップファイル名] --single-transaction [データベース名]
+```
+
+### インポート
+```
+mysql -u[ユーザー名] -p[パスワード] [インポートするデータベース名] < [インポートするファイル名]
+```

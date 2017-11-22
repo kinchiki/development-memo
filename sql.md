@@ -1,7 +1,4 @@
-## バックアップとリストア
-http://weblabo.oscasierra.net/mysql-mysqldump-01/
-
-## 内部結合
+# 内部結合
 ```
 SELECT カラム名1, カラム名2, ... FROM テーブル名１
   INNER JOIN テーブル名2 ON 結合の条件
