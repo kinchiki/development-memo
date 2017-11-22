@@ -36,3 +36,12 @@ mysqldump -u[ユーザー名] -p[パスワード] -r [バックアップファ�
 ```
 mysql -u[ユーザー名] -p[パスワード] [インポートするデータベース名] < [インポートするファイル名]
 ```
+
+
+## databaseのサイズ確認
+```
+select table_schema, sum(data_length+index_length) /1024 /1024/1024 as GB from information_schema.tables  group by table_schema order by sum(data_length+index_length) desc;
+```
+
+参考
+http://d.hatena.ne.jp/sho-yamasaki/20120405/1333640589
