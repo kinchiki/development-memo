@@ -1,3 +1,12 @@
+## in
+`hoge.where(カラム: 配列)` で可能
+
+例
+
+```ruby
+hoge.where(id: [1,3,4,5])
+```
+
 ## renderとpartial
 `render '◯◯'`
 とかだったら同じフォルダのpartial（ファイル名が`_◯◯`）を呼び出す
