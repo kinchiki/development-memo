@@ -1,4 +1,4 @@
-## MySQLメモ
+## 環境構築
 ### 一度だけ権限変更
 ```
 sudo chown -R _mysql:_mysql /usr/local/var/mysql
@@ -22,6 +22,21 @@ ERROR! The server quit without updating PID file (/usr/local/var/mysql/○○.lo
 ↓
 sudo touch /usr/local/var/mysql/○○.local.pid
 ```
+
+
+## DBのコピー
+```
+shell> mysqldump db1 > dump.sql
+shell> mysqladmin create db2
+shell> mysql db2 < dump.sql
+```
+
+mysqldump コマンド行に `--databases` は使用してはいけないらしい。
+`--databases` を使用すると、ダンプファイルに `USE db1` が含まれ、それによって mysql コマンド行の db2 の指定の効果がオーバーライドされるとのこと。
+
+参考
+https://dev.mysql.com/doc/refman/5.6/ja/mysqldump-copying-database.html
+
 
 ## バックアップとリストア
 オプションの次にスペースは入れない
