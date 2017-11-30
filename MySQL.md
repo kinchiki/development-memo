@@ -1,3 +1,9 @@
+## Sequel Pro の エクスポートのチェックボックス
+- S: table structure
+- C: content
+- V: drop table syntax
+
+
 ## 環境構築
 ### 一度だけ権限変更
 ```
