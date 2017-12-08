@@ -1,3 +1,11 @@
+## included of Module
+init みたいなもの。
+
+[引用](https://ref.xaio.jp/ruby/classes/module/included)
+
+>includeメソッドによってモジュールが他のモジュールやクラスにインクルードされたあとに呼び出されます。引数にはモジュールをインクルードするクラスやモジュールが入ります。
+
+
 ## positive?
 レシーバが 0 より大きい場合に true 、そうでない場合に false を返す
 
