@@ -38,3 +38,10 @@ ActiveAdmin.register モデル名 do
   end
 end
 ```
+
+## form type
+```
+f.input :email, as: :string => text 
+f.input :email, as: :text => textarea
+f.input :email, as: :date_picker => date_picker
+```
