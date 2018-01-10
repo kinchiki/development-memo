@@ -49,12 +49,12 @@ Filename Failed to manipulate with rmagick, maybe it is not an image? Original E
 
 ### imagemagick オプション込みで入れ直し（これはやらなくてよいかも）
 ```
-& brew install imagemagick@6 --build-from-source
+$ brew install imagemagick@6 --build-from-source
 ```
 
 ### rmagick 入れ直し
 ```
-$ bundle exec uninstall rmagick
+$ bundle exec gem uninstall rmagick
 $ PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig bundle install --path vendor/bundle
 ```
 
