@@ -1,3 +1,29 @@
+## remoteの追加、変更、削除
+[参考](https://qiita.com/colorrabbit/items/15ee0127cfe9ca5760a8)
+
+### add
+```
+$ git remote add github addするremote-repositry-url
+```
+
+### change
+```
+$ git remote set-url origin 変更後のremote-repositry-url
+```
+
+### delete
+```
+git remote rm <remote-name or url>?(未確認)
+```
+
+### 確認
+```
+# `.git/config` の `remote` を見たり -v つけたり
+$ cat .git/confing
+$ git remote -v
+```
+
+
 ## なにも変更していないのになぜか git pull が失敗
 ```
 $ git pull
