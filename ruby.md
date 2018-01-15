@@ -1,3 +1,6 @@
+## caller
+メソッドがどこから呼ばれたかを出す
+
 ## included of Module
 init みたいなもの。
 
