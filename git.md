@@ -108,13 +108,15 @@ git checkout -- ファイル
 ```
 git rebase -i HEAD~x
 ```
+
 x前までのコミットがエディタで開くので、編集したコミットの`pick`を`edit`(eだけでもOK)に変更して保存終了。
+修正したいファイルを編集して add する。commit messeageを編集したい場合はなにもせず次。
 
 ```
 git commit --amend
 ```
 
-してコミットメッセージを編集したら
+してcommitを更新したら
 
 ```
 git rebase --continue
