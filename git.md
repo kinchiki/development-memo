@@ -1,3 +1,13 @@
+## 複数revert
+nオプションでcommitせずにすむ
+
+```
+git revert -n <commit hash>
+git revert -n <commit hash>
+git revert -n <commit hash>
+git commit
+```
+
 ## remoteの追加、変更、削除
 [参考](https://qiita.com/colorrabbit/items/15ee0127cfe9ca5760a8)
 
