@@ -4,7 +4,7 @@ find target_directory search_condition action
 ```
 
 - -name
-- type
+- -type
   - f: ファイル
   - d: ディレクトリ
   - l: シンボリックリンク
