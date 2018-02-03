@@ -1,3 +1,38 @@
+## find
+```
+find target_directory search_condition action
+```
+
+- -name
+- type
+  - f: ファイル
+  - d: ディレクトリ
+  - l: シンボリックリンク
+- -iname: 大文字小文字を無視
+- -exec: 検索結果に別コマンド実行
+- -maxdepth: 検索対象の階層
+
+### sample
+#### カレントディレクトリ以下のファイルのパーミッションをすべて600にする
+```
+$ find . -type f -exec chmod 600 {} +
+or
+$ find . -type f | xargs chmod 600
+```
+
+#### ファイル名でソート
+
+```
+$ find . -name なんちゃら | sort
+```
+
+#### Permission denied を表示しない
+$ find / ... 2>/dev/null
+
+### 参考
+[find コマンド | コマンドの使い方(Linux) | hydroculのメモ](https://hydrocul.github.io/wiki/commands/find.html)
+
+
 ## モニタリング
 
 ```
