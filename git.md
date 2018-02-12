@@ -35,6 +35,9 @@ $ git remote -v
 
 
 ## なにも変更していないのになぜか git pull が失敗
+### 原因
+`git update-index --skip-worktree` したファイルがremoteの差分に含まれているとエラーになる。
+
 ```
 $ git pull
 error: Your local changes to the following files would be overwritten by checkout:
@@ -52,13 +55,14 @@ $ git stash
 No local changes to save
 ```
 
-ブランチなんか作って対象ファイルを削除してコミットしたらできた
+適当にブランチを作り、対象ファイルを削除してコミットしたらできる。
 
 ```
 $ git co -b hoge
 $ git rm 対象ファイル
 $ git commit -am なんかコメント
-$ g co master
+$ git co master
+$ git pull # 成功！
 ```
 
 
