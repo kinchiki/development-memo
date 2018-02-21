@@ -2,10 +2,10 @@
 nオプションでcommitせずにすむ
 
 ```
-git revert -n <commit hash>
-git revert -n <commit hash>
-git revert -n <commit hash>
-git commit
+$ git revert -n <commit hash>
+$ git revert -n <commit hash>
+$ git revert -n <commit hash>
+$ git commit
 ```
 
 ## remoteの追加、変更、削除
@@ -23,7 +23,7 @@ $ git remote set-url origin 変更後のremote-repositry-url
 
 ### delete
 ```
-git remote rm <remote-name or url>?(未確認)
+$ git remote rm <remote-name or url>?(未確認)
 ```
 
 ### 確認
@@ -75,11 +75,11 @@ master topicをrevert済み
 ↓は若干違うかも
 
 ```
-git checkout topic
-git checkout [topicの最初のコミットの一つ前のコミットハッシュ]
-git checkout -b topic_2
-git merge --squash topic
-git push -u origin topic_2
+$ git checkout topic
+$ git checkout [topicの最初のコミットの一つ前のコミットハッシュ]
+$ git checkout -b topic_2
+$ git merge --squash topic
+$ git push -u origin topic_2
 ```
 
 これで`topic_2`を`release-x.x`にマージ先としてプルリクを作成する。
@@ -88,9 +88,9 @@ git push -u origin topic_2
 ↓でよいかも？
 
 ```
-git rebase -i HEAD~x
+$ git rebase -i HEAD~x
 まとめる最後のpickをsquashに変更
-git push -f
+$ git push -f
 ```
 
 
@@ -112,7 +112,7 @@ git push -f
 
 ## ファイルの変更の削除
 ```
-git checkout -- ファイル
+$ git checkout -- ファイル
 ```
 
 ↑のコマンドは`git status`に出てくる
@@ -120,21 +120,21 @@ git checkout -- ファイル
 
 ## 2つ以上前のコミットを編集する
 ```
-git rebase -i HEAD~x
+$ git rebase -i HEAD~x
 ```
 
 x前までのコミットがエディタで開くので、編集したコミットの`pick`を`edit`(eだけでもOK)に変更して保存終了。
 修正したいファイルを編集して add する。commit messeageを編集したい場合はなにもせず次。
 
 ```
-git commit --amend
+$ git commit --amend
 ```
 
 してcommitを更新したら
 
 ```
-git rebase --continue
-git push -f
+$ git rebase --continue
+$ git push -f
 ```
 
 して終了。
@@ -143,18 +143,18 @@ git push -f
 ## 未追跡ファイルを削除（コミット後の編集を消す）
 動作確認
 ```
-git clean -n
+$ git clean -n
 ```
 
 実行
 ```
-git clean -f
+$ git clean -f
 ```
 
 
 ## 追跡ブランチ削除
 ```
-git branch -d -r origin/消すブランチ
+$ git branch -d -r origin/消すブランチ
 ```
 
 
@@ -164,37 +164,37 @@ git branch -d -r origin/消すブランチ
 リスト表示
 ハッシュ、コミットメッセージはstash時のHEADのもの
 ```
-git stash list
+$ git stash list
 ```
 
 変更内容も見れる
 ```
-git stash list -p
+$ git stash list -p
 ```
 
 詳しく見る
 ```
-git stash show <stash名>
+$ git stash show <stash名>
 ```
 
 復活させる
 ```
-git stash apply stash@{番号}
+$ git stash apply stash@{番号}
 ```
 
 stash削除
 ```
-git stash drop <stash名>
+$ git stash drop <stash名>
 ```
 
 変更の復活と削除
 ```
-git stash pop stash@{番号}
+$ git stash pop stash@{番号}
 ```
 
 変更復活を取り消す
 ```
-git stash show <適用したstash名> -p | git apply -R
+$ git stash show <適用したstash名> -p | git apply -R
 ```
 
 ### zshの場合
@@ -216,13 +216,13 @@ $ git stash drop stash@{x}
 
 ## 一つ前のコミットに戻る（直前のコミットを消す）
 ```
-git reset --hard HEAD
+$ git reset --hard HEAD
 ```
 
 
 ## git addした後に変更点を見る
 ```
-git diff --cached
+$ git diff --cached
 ```
 
 ## addの取り消し
@@ -234,8 +234,8 @@ git diff --cached
 
 ## リモーリポジトリの変更
 ```
-git remote set-url origin アドレス
-git push -u origin master
+$ git remote set-url origin アドレス
+$ git push -u origin master
 ```
 
 `git push`だけだと弾かれる
@@ -262,13 +262,13 @@ git push -u origin master
 
 ```
 取り消してコードも取り消し前に戻す
-git reset --hard HEAD~1
+$ git reset --hard HEAD~1
 
 取り消してコードはそのまま
-git reset --soft HEAD~1
+$ git reset --soft HEAD~1
 
 打ち消し（コミット履歴が残る）
-git revert ハッシュ値
+$ git revert ハッシュ値
 ```
 
 
@@ -277,13 +277,13 @@ git revert ハッシュ値
 作業ブランチで
 
 ```
-git rebase プルリク先のブランチ
+$ git rebase プルリク先のブランチ
 ```
 
 conflictを直してadd
 `git rebase --continue` か `git rebase --skip`
 
-git diffでコンフリクト箇所がわかる
+$ git diffでコンフリクト箇所がわかる
 
 `git rebase --abort` でrebase前に巻き戻せる
 
@@ -295,10 +295,10 @@ git diffでコンフリクト箇所がわかる
 merge先のブランチをトピックブランチにmergeする。
 
 ```
-git merge releaseブランチなど
+$ git merge releaseブランチなど
 ```
 
 ## リモートで消えたブランチをローカルからも消す
 ```
-git fetch --prune
+$ git fetch --prune
 ```
