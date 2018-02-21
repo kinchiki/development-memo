@@ -1,3 +1,16 @@
+## 複数cherry_pick
+左が古いコミット。
+**古いコミットハッシュのコミットは含まれず、その次のコミットからcheryy-pickされる**。
+もし左のコミット自体を含めたい場合、 `^` をつける。
+
+```
+$ git cherry-pick commitA..commitB
+
+# commitAも含める場合
+$ git cherry-pick commitA^..commitB
+```
+
+
 ## 複数revert
 nオプションでcommitせずにすむ
 
