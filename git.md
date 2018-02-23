@@ -26,17 +26,17 @@ $ git commit
 
 ### add
 ```
-$ git remote add github addするremote-repositry-url
+$ git remote add github <remote-repositry-url>
 ```
 
 ### change
 ```
-$ git remote set-url origin 変更後のremote-repositry-url
+$ git remote set-url origin <remote-repositry-url>
 ```
 
 ### delete
 ```
-$ git remote rm <remote-name or url>?(未確認)
+$ git remote rm <remote-name or url>(未確認)
 ```
 
 ### 確認
@@ -245,15 +245,6 @@ $ git diff --cached
 ファイルパスの省略でインデックスのファイル全て
 
 
-## リモーリポジトリの変更
-```
-$ git remote set-url origin アドレス
-$ git push -u origin master
-```
-
-`git push`だけだと弾かれる
-
-
 ## bitbucketでホスティング
 `ユーザー名.bitbucket.org` というリポジトリを作成。
 プライベートで可。
@@ -302,7 +293,7 @@ $ git diffでコンフリクト箇所がわかる
 
 最後は `git push -f`
 
-**なにか死んでpullしたときとかは、git commitだけのコンフリクト解消コミットをする**
+**なにか死んでpullしたときなどは、git commitだけのコンフリクト解消コミットをする**
 
 ### merge
 merge先のブランチをトピックブランチにmergeする。
