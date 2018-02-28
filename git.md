@@ -299,8 +299,11 @@ $ git diffでコンフリクト箇所がわかる
 merge先のブランチをトピックブランチにmergeする。
 
 ```
-$ git merge releaseブランチなど
+$ git merge <merge先ブランチ>
 ```
+
+コンフリクトが発生したら、解消して `git commit -m 'fixed conflict'` などとコミットすればよい。
+
 
 ## リモートで消えたブランチをローカルからも消す
 ```
