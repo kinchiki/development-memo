@@ -153,16 +153,26 @@ $ git push -f
 して終了。
 
 
-## 未追跡ファイルを削除（コミット後の編集を消す）
-動作確認
+## 未追跡ファイル・ディレクトリを削除
+削除ファイル確認
+
 ```
-$ git clean -n
+$ git clean -nd
 ```
 
-実行
+ファイルのみ削除
+
 ```
 $ git clean -f
 ```
+
+ディレクトリも削除
+
+```
+$ git clean -df
+```
+
+パスを第一引数に指定するとそのパス内のみ。
 
 
 ## 追跡ブランチ削除
@@ -251,7 +261,7 @@ $ git diff --cached
 
 `https://ユーザー名.bitbucket.io/`でアクセス。
 
-参考  
+参考
 [意外と知られていない、BitbucketでもGithub PagesのようにWebページを公開 :) - Qiita](http://qiita.com/n0bisuke/items/8576456f2e329cb1df45)
 
 [Free Hosting at BitBucket / hg tip](http://hgtip.com/tips/beginner/2009-10-13-free-hosting-at-bitbucket/)
