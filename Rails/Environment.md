@@ -1,3 +1,23 @@
+## Nokogiri Error
+[ここを見る](http://www.nokogiri.org/tutorials/installing_nokogiri.html)
+
+
+### 解決作1
+```sh
+$ brew unlink xz
+$ gem install nokogiri # or bundle install
+$ brew link xz
+```
+
+### 解決策2
+```sh
+$ brew install libxml2
+# If using Bundle
+$ bundle config build.nokogiri --use-system-libraries --with-xml2-include=$(brew --prefix libxml2)/include/libxml2
+$ bundle install
+```
+
+
 ## couldn't find file 'webpack-bundle' with type 'application/javascript' で死ぬ
 ### 結論
 こんな感じのコマンド叩けばよい？
@@ -21,14 +41,14 @@
 `Procfile.dev` の `client` を見る
 
 例えば以下
-```
+```sh
 client: sh -c 'rm app/assets/webpack/* || true && cd client && npm run build:development'
 ```
 
 `client/package.json` の `scripts` 見る
 
 例えば以下
-```
+```json
   "scripts": {
     "build:test": "webpack --config webpack.config.js",
     "build:production": "NODE_ENV=production webpack --config webpack.config.js",
@@ -43,12 +63,12 @@ client: sh -c 'rm app/assets/webpack/* || true && cd client && npm run build:dev
 
 ## imagemagick をアップデートして rmagick を入れ直す
 ### 画像アップロードが失敗する（エラー画面にはならない）
-```
+```sh
 Filename Failed to manipulate with rmagick, maybe it is not an image? Original Error: unable to load module `/usr/local/Cellar/imagemagick@6/6.9.8-10/lib/ImageMagick//modules-Q16/coders/jpeg.la': file not found @ error/module.c/OpenModule/1290
 ```
 
 ### imagemagick オプション込みで入れ直し（これはやらなくてよいかも）
-```
+```sh
 $ brew install imagemagick@6 --build-from-source
 ```
 
@@ -76,7 +96,7 @@ brew switch
 
 もしアンインストールしていたら、gitのコミットを戻す。
 
-```
+```sh
 Users/akito.mizuno/couplink/vendor/bundle/ruby/2.3.0/gems/activesupport-5.0.3/lib/active_support/dependencies.rb:293:in `require': dlopen(/Users/akito.mizuno/couplink/vendor/bundle/ruby/2.3.0/gems/rmagick-2.16.0/lib/RMagick2.bundle, 9): Library not loaded: /usr/local/opt/imagemagick@6/lib/libMagickWand-6.Q16.4.dylib (LoadError)
   Referenced from: /Users/akito.mizuno/couplink/vendor/bundle/ruby/2.3.0/gems/rmagick-2.16.0/lib/RMagick2.bundle
   Reason: image not found - /Users/akito.mizuno/couplink/vendor/bundle/ruby/2.3.0/gems/rmagick-2.16.0/lib/RMagick2.bundle
@@ -109,7 +129,7 @@ Users/akito.mizuno/couplink/vendor/bundle/ruby/2.3.0/gems/activesupport-5.0.3/li
 
 シンボリックリンク `libMagickWand-6.Q16.4.dylib` を作成したらまたエラー
 
-```
+```sh
 /Users/akito.mizuno/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.14.6/lib/bundler/runtime.rb:94:in `rescue in block (2 levels) in require': There was an error while trying to load the gem 'rmagick'. (Bundler::GemRequireError)
 Gem Load Error is: This installation of RMagick was configured with ImageMagick 6.9.8 but ImageMagick 6.9.9-0 is in use.
 
