@@ -1,3 +1,11 @@
+## master ブランチ以外削除
+grepでmaster以外を除外してxargsで削除。
+mergeされていないものも含むなら-Dオプションで。
+
+```
+$ git branch | grep -v master | xargs git branch -d
+```
+
 ## 複数cherry_pick
 左が古いコミット。
 **古いコミットハッシュのコミットは含まれず、その次のコミットからcheryy-pickされる**。
