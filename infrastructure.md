@@ -54,3 +54,8 @@ sudo rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-cento
 ```sh
 sudo yum -y install nginx
 ```
+
+### 自動起動設定をオンにする
+```sh
+$ sudo systemctl enable nginx
+```
