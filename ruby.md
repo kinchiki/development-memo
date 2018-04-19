@@ -1,3 +1,18 @@
+## ループのインデックス
+- `each_with_index` は0から開始
+- `each.with_index` は引数の値から開始
+
+```ruby
+users.each_with_index do |user, i|
+  p i # => 0,1,2,3...
+end
+
+users.each.with_index(1) do |user, i|
+  p i # => 1,2,3...
+end
+```
+
+
 ## caller
 メソッドがどこから呼ばれたかを出す
 
