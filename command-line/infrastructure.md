@@ -47,15 +47,29 @@ enabled=1
 これでも設定ファイルを落とせるらしい。
 
 ```sh
-sudo rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+$ sudo rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 ```
 
 ### 2 yum install
 ```sh
-sudo yum -y install nginx
+$ sudo yum -y install nginx
 ```
 
 ### 自動起動設定をオンにする
 ```sh
 $ sudo systemctl enable nginx
+```
+
+## 80番ポート解放
+```sh
+$ firewall-cmd --add-service=http --zone=public --permanent
+$ firewall-cmd --reload
+```
+
+## ポート確認
+こういうコマンド
+
+```sh
+$ sudo netstat -ltunp4 #
+$ sudo firewall-cmd --list-all
 ```
