@@ -84,13 +84,15 @@ $ bundle exec gem uninstall rmagick
 $ PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig bundle install --path vendor/bundle
 ```
 
-#### もし bundle exec uninstall rmagick が失敗したら
+#### もし bundle exec gem uninstall rmagick が失敗したら
 以下で動いた。
 
 ```
 $ gem update --system
 $ gem update
 ```
+
+多分間違えて `bundle exec uninstall rmagick(gemがない)` としていただけで、失敗することはないと思う。
 
 
 ## imagemagick をアップデートしてエラー
