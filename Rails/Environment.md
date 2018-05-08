@@ -187,6 +187,73 @@ Bundler Error Backtrace:
 ```
 
 
+## ovirt-engine-sdk でエラー(fogの依存関係？)
+centosなら libcurl-devel, libxml2-devel を入れればOK
+
+```
+$ sudo yum -y install gcc libcurl-devel libxml2-devel redhat-rpm-config
+```
+
+githubに必要パッケージが記載されている
+https://github.com/oVirt/ovirt-engine-sdk-ruby
+
+### エラー
+
+```sh
+current directory:
+/var/www/couplink_api/shared/bundle/ruby/2.5.0/gems/ovirt-engine-sdk-4.2.4/ext/ovirtsdk4c
+/usr/local/rbenv/versions/2.5.1/bin/ruby -r ./siteconf20180508-2914-g8l0i3.rb
+extconf.rb
+checking for xml2-config... yes
+checking for curl-config... no
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/usr/local/rbenv/versions/2.5.1/bin/$(RUBY_BASE_NAME)
+	--with-libcurl-config
+	--without-libcurl-config
+	--with-pkg-config
+	--without-pkg-config
+extconf.rb:40:in `<main>': The "libcurl" package isn't available. (RuntimeError)
+
+To see why this extension failed to compile, please check the mkmf.log which can
+be found here:
+
+/var/www/couplink_api/shared/bundle/ruby/2.5.0/extensions/x86_64-linux/2.5.0-static/ovirt-engine-sdk-4.2.4/mkmf.log
+
+extconf failed, exit code 1
+
+Gem files will remain installed in
+/var/www/couplink_api/shared/bundle/ruby/2.5.0/gems/ovirt-engine-sdk-4.2.4 for
+inspection.
+Results logged to
+/var/www/couplink_api/shared/bundle/ruby/2.5.0/extensions/x86_64-linux/2.5.0-static/ovirt-engine-sdk-4.2.4/gem_make.out
+
+An error occurred while installing ovirt-engine-sdk (4.2.4), and Bundler cannot
+continue.
+Make sure that `gem install ovirt-engine-sdk -v '4.2.4'` succeeds before
+bundling.
+
+In Gemfile:
+  fog was resolved to 2.0.0, which depends on
+    fog-ovirt was resolved to 1.0.3, which depends on
+      ovirt-engine-sdk
+```
+
+
 ## rails s や c でエラー
 ```
 /usr/local/rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/bundler-1.16.1/lib/bundler/runtime.rb:84:in `rescue in block (2 levels) in require': There was an error while trying to load the gem 'uglifier'. (Bundler::GemRequireError)
