@@ -1,6 +1,47 @@
+## grep
+シングルクォートとダブルクォートはどちらが普通？
+変数展開しない限りはシングルクォートでいい？
+
+### 基本
+-r で再帰的, -n で行番号出力
+
+```
+$ grep search_sring target_file_or_directory
+$ grep -rn 'hoge' .
+```
+
+### or 検索
+```
+# -e で繋ぐ (最初につけたオプションはすべて有効になる)
+$ grep -e one -e two sample.txt
+
+# 正規表現
+$ grep -E 'one|two' sample.txt
+```
+
+### and検索
+```
+# パイプ
+$ grep one sample.txt | grep two
+
+# 順番がわかっているなら正規表現とか？
+$ grep -E 'one.+two' sample.txt
+```
+
+### オプション
+- r: ディレクトリを再帰的に検索
+- n: 行番号出力
+- v: 除外
+- c :出現行数カウント
+- i: 大文字小文字区別なし
+- B n: 前n行
+- A n: 後n行
+- C n: 前後n行
+
+
 ## find
 ```
-find target_directory search_condition action
+$ find target_directory search_condition action
 ```
 
 - -name
