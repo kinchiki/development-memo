@@ -11,3 +11,31 @@ Aを設定しないとつながらない
 localhostなどはこれを見ればどこを向いているかわかる。
 
 `/etc/hosts`
+
+
+## ssh接続したらWARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!が出る時
+```
+$ ssh-keygen -R 対象HOST(IPアドレス)
+```
+
+OS再インストールやホスト名付け替えをするとこんな注意が出るようになる。
+
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+***************************************************
+Please contact your system administrator.
+Add correct host key in /Users/user-name/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /Users/user-name/.ssh/known_hosts
+Password authentication is disabled to avoid man-in-the-middle attacks.
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
+```
+
+### 参考
+- https://qiita.com/grgrjnjn/items/8ca33b64ea0406e12938
+- https://www.uramiraikan.net/Works/entry-1970.html
