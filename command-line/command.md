@@ -1,3 +1,31 @@
+# Permission
+## chown
+```
+# 所有者の変更
+# chown group file
+$ chown mizuno sample.txt
+
+# グループの変更
+# chown :group file
+$ chown :mizuno sample.txt
+
+# 所有者とグループの変更
+# chown user:group file
+$ chown mizuno:mizuno sample.txt
+```
+
+ユーザー名のあとにコロンを記述しグループ名が無い場合、ファイルのグループはそのユーザのプライマリグループに変更され、ユーザーは指定したものになる
+
+```
+# chown user: file
+$ chown mizuno: sample.txt
+```
+
+
+- R: 再帰的に変更
+- c: 実際に変更があった場合の動作を詳細表示
+
+# 検索
 ## grep
 シングルクォートとダブルクォートはどちらが普通？
 変数展開しない限りはシングルクォートでいい？
