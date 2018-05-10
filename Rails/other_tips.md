@@ -1,3 +1,10 @@
+## secret_key_base
+cookie生成の時に必要な値らしい。
+ecret_key_baseはcookie改ざん防止の鍵。
+
+参考
+http://hyottokoaloha.hatenablog.com/entry/2016/02/17/215910
+
 ## ディレクトリ内にgenerate
 `app/controllers/manage/`に作成
 ```
