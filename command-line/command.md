@@ -250,3 +250,17 @@ tail -Fでも可能
 - M プロンプトに詳細表示
 - R 色つけ
 - S ラップしない
+
+## sudo, su
+パスワードはsudoを実行したユーザーのもの
+
+```
+$ sudo -u user_name vim sample.txt
+```
+
+### ユーザー変更
+sudo必要？
+
+```
+$ su - user_name
+```
