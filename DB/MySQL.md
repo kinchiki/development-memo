@@ -1,3 +1,6 @@
+## パスワード変更
+SET PASSWORD FOR user_name = 'new_password';
+
 ## Sequel Pro の エクスポートのチェックボックス
 - S: table structure
 - C: content
