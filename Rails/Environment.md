@@ -201,7 +201,7 @@ https://github.com/oVirt/ovirt-engine-sdk-ruby
 
 ```sh
 current directory:
-/var/www/couplink_api/shared/bundle/ruby/2.5.0/gems/ovirt-engine-sdk-4.2.4/ext/ovirtsdk4c
+bundle/ruby/2.5.0/gems/ovirt-engine-sdk-4.2.4/ext/ovirtsdk4c
 /usr/local/rbenv/versions/2.5.1/bin/ruby -r ./siteconf20180508-2914-g8l0i3.rb
 extconf.rb
 checking for xml2-config... yes
@@ -232,15 +232,15 @@ extconf.rb:40:in `<main>': The "libcurl" package isn't available. (RuntimeError)
 To see why this extension failed to compile, please check the mkmf.log which can
 be found here:
 
-/var/www/couplink_api/shared/bundle/ruby/2.5.0/extensions/x86_64-linux/2.5.0-static/ovirt-engine-sdk-4.2.4/mkmf.log
+bundle/ruby/2.5.0/extensions/x86_64-linux/2.5.0-static/ovirt-engine-sdk-4.2.4/mkmf.log
 
 extconf failed, exit code 1
 
 Gem files will remain installed in
-/var/www/couplink_api/shared/bundle/ruby/2.5.0/gems/ovirt-engine-sdk-4.2.4 for
+bundle/ruby/2.5.0/gems/ovirt-engine-sdk-4.2.4 for
 inspection.
 Results logged to
-/var/www/couplink_api/shared/bundle/ruby/2.5.0/extensions/x86_64-linux/2.5.0-static/ovirt-engine-sdk-4.2.4/gem_make.out
+bundle/ruby/2.5.0/extensions/x86_64-linux/2.5.0-static/ovirt-engine-sdk-4.2.4/gem_make.out
 
 An error occurred while installing ovirt-engine-sdk (4.2.4), and Bundler cannot
 continue.
@@ -379,3 +379,81 @@ bin/rails:3:in `load'
 bin/rails:3:in `<main>'
 Bundler Error Backtrace:
 ```
+
+## rails c や puma start で redis で落ちる
+`invalid uri scheme '' (ArgumentError)` で落ちる。
+
+環境変数やRailsのコードのRedisのエンドポイントの先頭に `redis://` をつける。
+
+### 参考
+[REDIS_URL環境変数は'redis://hostname:6379'のようにスキマー(redis://)を含めるほうが良いお話 - Qiita](https://qiita.com/blueplanet/items/b72be9dc349ec7f15cba)
+
+### エラー
+```
+$ bin/rails c
+Traceback (most recent call last):
+	63: from bin/rails:4:in `<main>'
+	62: from bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:283:in `require'
+	61: from bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:249:in `load_dependency'
+	60: from bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:283:in `block in require'
+	59: from bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:29:in `require'
+	58: from bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:20:in `require_with_bootsnap_lfi'
+	57: from bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/loaded_features_index.rb:65:in `register'
+	56: from bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `block in require_with_bootsnap_lfi'
+	55: from bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `require'
+	54: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/commands.rb:18:in `<main>'
+	53: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/command.rb:46:in `invoke'
+	52: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/command/base.rb:65:in `perform'
+	51: from bundle/ruby/2.5.0/gems/thor-0.20.0/lib/thor.rb:387:in `dispatch'
+	50: from bundle/ruby/2.5.0/gems/thor-0.20.0/lib/thor/invocation.rb:126:in `invoke_command'
+	49: from bundle/ruby/2.5.0/gems/thor-0.20.0/lib/thor/command.rb:27:in `run'
+	48: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/commands/console/console_command.rb:95:in `perform'
+	47: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/command/actions.rb:18:in `require_application_and_environment!'
+	46: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/application.rb:337:in `require_environment!'
+	45: from bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:283:in `require'
+	44: from bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:249:in `load_dependency'
+	43: from bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:283:in `block in require'
+	42: from bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:29:in `require'
+	41: from bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:20:in `require_with_bootsnap_lfi'
+	40: from bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/loaded_features_index.rb:65:in `register'
+	39: from bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `block in require_with_bootsnap_lfi'
+	38: from bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:21:in `require'
+	37: from config/environment.rb:7:in `<main>'
+	36: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/application.rb:361:in `initialize!'
+	35: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/initializable.rb:60:in `run_initializers'
+	34: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:205:in `tsort_each'
+	33: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:226:in `tsort_each'
+	32: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:347:in `each_strongly_connected_component'
+	31: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:347:in `call'
+	30: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:347:in `each'
+	29: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:349:in `block in each_strongly_connected_component'
+	28: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:415:in `each_strongly_connected_component_from'
+	27: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:415:in `call'
+	26: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/initializable.rb:50:in `tsort_each_child'
+	25: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/initializable.rb:50:in `each'
+	24: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:421:in `block in each_strongly_connected_component_from'
+	23: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:431:in `each_strongly_connected_component_from'
+	22: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:422:in `block (2 levels) in each_strongly_connected_component_from'
+	21: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:350:in `block (2 levels) in each_strongly_connected_component'
+	20: from /usr/local/rbenv/versions/2.5.1/lib/ruby/2.5.0/tsort.rb:228:in `block in tsort_each'
+	19: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/initializable.rb:61:in `block in run_initializers'
+	18: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/initializable.rb:32:in `run'
+	17: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/initializable.rb:32:in `instance_exec'
+	16: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:613:in `block in <class:Engine>'
+	15: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:613:in `each'
+	14: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:614:in `block (2 levels) in <class:Engine>'
+	13: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:656:in `load_config_initializer'
+	12: from bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/notifications.rb:170:in `instrument'
+	11: from bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:657:in `block in load_config_initializer'
+	10: from bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:277:in `load'
+	 9: from bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:249:in `load_dependency'
+	 8: from bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/dependencies.rb:277:in `block in load'
+	 7: from bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:50:in `load'
+	 6: from bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:50:in `load'
+	 5: from config/initializers/redis.rb:3:in `<main>'
+	 4: from config/initializers/redis.rb:3:in `new'
+	 3: from bundle/ruby/2.5.0/gems/redis-4.0.1/lib/redis.rb:38:in `initialize'
+  1 # .bashrc
+	 2: from bundle/ruby/2.5.0/gems/redis-4.0.1/lib/redis.rb:38:in `new'
+	 1: from bundle/ruby/2.5.0/gems/redis-4.0.1/lib/redis/client.rb:79:in `initialize'
+bundle/ruby/2.5.0/gems/redis-4.0.1/lib/redis/client.rb:415:in `_parse_options': invalid uri scheme '' (ArgumentError)
