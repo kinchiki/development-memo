@@ -1,3 +1,15 @@
+## bash で ctrl + s で前方検索できるようにする
+通常はctrl+sにスクリーンロックがかかっているため、それを解除する。
+
+```
+$ stty -a
+# stop=^S になっていたらスクリーンロック
+$ stty stop undef
+```
+
+### 参考
+[Bashでコマンド履歴から検索して実行する - Qiita](https://qiita.com/quwa/items/3a23c9dbe510e3e0f58e)
+
 # Permission
 ## chown
 ```
