@@ -1,8 +1,7 @@
-
-## 手順
+## バージョン指定
 centos 6 の場合
 
-```
+```sh
 # インストール
 $ cd /usr/local
 $ sudo su -
@@ -74,3 +73,23 @@ $ chkconfig redis off
 - [Redisのインストール CentOS6.8 | システムガーディアン株式会社](https://sys-guard.com/post-13267/)
 - [Redisインストール〜起動まで - Qiita](https://qiita.com/ono-soic/items/efbbf56fbbc8d4b44a07)
 - [Redisのインストール・セットアップ - Qiita](https://qiita.com/KurosawaTsuyoshi/items/f8719bf7c3a10d22a921)
+
+
+## yum で入れる（細かいバージョン指定はできない？）
+### 参考
+[remi / epel / dotdeb リポジトリの導入 - Qiita](https://qiita.com/KurosawaTsuyoshi/items/9a2b61af6e13dfa5641b)
+
+### 手順
+```sh
+$ sudo rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6
+$ sudo rpm -Uvh http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+$ sudo rpm --import http://rpms.famillecollet.com/RPM-GPG-KEY-remi
+$ sudo rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+
+# 1があればバックアップ作成してからsedで0にする
+$ grep enabled /etc/yum.repos.d/epel.repo
+$ grep enabled /etc/yum.repos.d/remi.repo
+$ grep enabled /etc/yum.repos.d/remi-safe.repo
+$ sudo cp -p /etc/yum.repos.d/remi-safe.repo /etc/yum.repos.d/remi-safe.repo_`date '+%Y%m%d'`
+$ sudo sed -e 's/enabled\=1/enabled\=0/' -i /etc/yum.repos.d/remi-safe.repo
+```
