@@ -1,6 +1,15 @@
 ## bash で ctrl + s で前方検索できるようにする
 通常はctrl+sにスクリーンロックがかかっているため、それを解除する。
 
+.bashrc などに書かないとログイン？の度に設定が無効になる。
+
+```sh
+# User specific aliases and functions
+if [ "$SSH_TTY" != "" ]; then
+    stty stop undef
+fi
+```
+
 ```
 $ stty -a
 # stop=^S になっていたらスクリーンロック
