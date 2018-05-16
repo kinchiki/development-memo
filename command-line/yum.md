@@ -12,3 +12,9 @@ $ yum info [package_name] # 詳細情報表示
 `enabled=0` なら `yum --enablerepo=remi install [paclage_name]` みたいにする。
 
 `yum repolist` でリポジトリ表示。
+
+
+## パッケージグループ
+```
+$ yum -v grouplist # グループリスト
+$ yum groupremove [group_name] # グループ削除 パッケージも消える？
