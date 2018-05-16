@@ -1,3 +1,19 @@
+## 権限確認
+```sql
+show grants;
+```
+
+
+## user 作成
+```sql
+grant [role] on [DB].[table] to [user]@[host] [identified] by '[password]';
+
+grant all on test_db.* to test_user@'localhost' identified by 'password';
+```
+
+role - select, insert, update, delete, create, drop
+
+
 ## パスワード変更
 SET PASSWORD FOR user_name = 'new_password';
 
