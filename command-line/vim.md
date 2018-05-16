@@ -1,4 +1,13 @@
-## terminal に戻る
+## 矩形選択
+`ctrl+v` で矩形選択(VISUAL BLOCK)モード
+
+1. ctrl+v
+1. j or k で上下移動（カーソルも可）
+1. shift+i でインサートモード
+1. キー入力
+1. esc でノーマルモード finish
+
+## 起動したまま terminal に戻る
 1. ctrl + z でターミナルに戻る
 1. fg でバックグラウンドの vim に戻る
 
