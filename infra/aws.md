@@ -122,3 +122,16 @@ https://aws.amazon.com/jp/elasticloadbalancing/pricing/
 ### 料金
 - 時間単位
 - 他にも？
+
+
+## S3
+[AWS再入門 Amazon S3編 ｜ Developers.IO](https://dev.classmethod.jp/cloud/aws/cm-advent-calendar-2015-aws-re-entering-s3/)
+
+バケット: EC2でいうインスタンス
+
+### アクセス権
+- バケットポリシー: バケット毎にアクセス権限を指定。
+- ACL: バケットおよびオブジェクト毎にアクセス権限を指定。(バケットACLよりオブジェクトACLが優先される。)
+- ユーザポリシー(IAMでの制御): IAMユーザに対して、S3やバケットへのアクセス権限を設定。複数バケットやS3以外のサービスも含めて一元的にユーザ権限を指定する場合などに使用。
+
+CloudFrontでS3のなにかを設定したら、自動で S3 > アクセス権限 > バケットポリシー に追加される。
