@@ -1,3 +1,14 @@
+## バージョン確認
+```sql
+show variables like 'version%';
+-- or
+select version();
+```
+
+### 注意
+`mysql -V` は**クライアントのバージョン**で、サーバーのバージョンではない！
+
+
 ## 権限確認
 ```sql
 show grants;
