@@ -1,3 +1,15 @@
+## テーブルとカラム一覧取得
+```sql
+-- tabale 一覧
+show tables from database_name;
+-- カラム 一覧
+show columns from tabale_name;
+-- テーブルとカラム一覧
+use information_schema;
+select table_name, column_name from columns where table_schema='database_name';
+```
+
+
 ## バージョン確認
 ```sql
 show variables like 'version%';
@@ -19,7 +31,7 @@ show grants;
 ```sql
 grant [role] on [DB].[table] to [user]@[host] [identified] by '[password]';
 
-grant all on test_db.* to test_user@'localhost' identified by 'password';
+grant all on test_db.* to test_user@'localhost' identified by '[password]';
 ```
 
 role - select, insert, update, delete, create, drop
