@@ -192,54 +192,36 @@ $ git branch -d -r origin/消すブランチ
 ## stash
 一時退避
 
-変更ファイル退避
 ```
+# 変更ファイル退避
 $ git stash
-```
 
-名前をつけて保存
-```
+# 名前をつけて保存
 $ git stash save 'メッセージ'
-```
 
-リスト表示
-ハッシュ、コミットメッセージはstash時のHEADのもの
-```
+# リスト表示
+# ハッシュ、コミットメッセージはstash時のHEADのもの
 $ git stash list
-```
 
-変更内容を全て見る
-```
+# 変更内容を全て見る
 $ git stash list -p
-```
 
-該当stashの詳細
-```
+# 該当stashの詳細
 $ git stash show <stash名>
-```
 
-変更の復活と削除
-```
+# 変更の復活と削除
 $ git stash pop stash@{番号}
-```
 
-stash削除
-```
+# stash削除
 $ git stash drop <stash名>
-```
 
-全て削除
-```
+# 全て削除
 $ git stash clear
-```
 
-復活させる
-```
+# 復活させる
 $ git stash apply stash@{番号}
-```
 
-変更復活を取り消す
-```
+# 変更復活を取り消す
 $ git stash show <適用したstash名> -p | git apply -R
 ```
 
@@ -257,12 +239,6 @@ stash@\{x\}
 ```
 $ git stash drop stash@{x}
 => stash@x is not a valid reference
-```
-
-
-## 一つ前のコミットに戻る（直前のコミットを消す）
-```
-$ git reset --hard HEAD
 ```
 
 
