@@ -32,3 +32,12 @@ user.save!
 user.save
 user.errors
 ```
+
+
+## association の inverse_of option
+メモリ上で同一インスタンスとして扱われるようにするやつ
+
+`:inverse_of` が指定されていない `:conditions, :through, :polymorphic, :class_name, :foreign_key` を含むアソシエーションに対してrubocopは警告を出す。
+
+### 参考
+[RuboCopの Rails/InverseOf について調べた - sometimes I laugh](https://sil.hatenablog.com/entry/rubocop-rails-inverse-of)
