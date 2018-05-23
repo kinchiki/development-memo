@@ -1,3 +1,19 @@
+## 別ブランチの特定ファイルだけマージ
+```sh
+# ファイル確認
+$ git show <ブランチ名>:<ファイル名>
+
+# 取ってくる
+$ git checkout <ブランチ名> -- <ファイル名>
+
+# ディレクトリを取ってくる
+$ git checkout <ブランチ名> <ディレクトリ名>
+```
+
+### 参考
+[Git 1ファイルだけ別のブランチから持ってくる - Qiita](https://qiita.com/oret/items/b646fcada9d89ed308c4)
+
+
 ## master ブランチ以外削除
 grepでmaster以外を除外してxargsで削除。
 mergeされていないものも含むなら-Dオプションで。
