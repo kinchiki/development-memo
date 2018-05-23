@@ -254,8 +254,19 @@ ls -F | grep -v /
 
 ## 圧縮
 ```
-tar cfvz 圧縮後のファイル名.tar.gz 圧縮するディレクトリ
+$ tar cfvz xxxx.tar.gz [target_directory]
+$ tar xfvz xxxx.tar.gz
 ```
+
+- c: 新しいtarファイルを作る (create)
+- v: 圧縮・解凍状況を表示(verbose)
+- f: 圧縮ファイル名指定 (filename)
+- x: 解凍 (extract)
+- z: gz
+- j: bz2
+- J: xz
+
+[[Linux]ファイルの圧縮、解凍方法 - Qiita](https://qiita.com/supersaiakujin/items/c6b54e9add21d375161f)
 
 
 ## ログ監視
