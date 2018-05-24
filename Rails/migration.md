@@ -1,3 +1,21 @@
+## 複合ユニーク制約
+複合インデックスにユニーク制約をつける。
+外部キーにも `_id` をつける。
+
+```ruby
+def change
+  create_table :table_name do |t|
+    t.references :user, foreign_key: true, null: false
+    t.references :target_user, foreign_key: { to_table: :users }, null: false
+
+    t.timestamps
+  end
+
+  add_index :table_name, %i[user_id target_user_id], unique: true
+end
+```
+
+
 ## 外部キー制約を付けたカラムを変更する
 こんなふうに怒られる。
 
