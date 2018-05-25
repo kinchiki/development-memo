@@ -33,7 +33,7 @@ user.save
 user.errors
 ```
 
-
+# Association
 ## association の inverse_of option
 メモリ上で同一インスタンスとして扱われるようにするやつ
 
@@ -41,3 +41,16 @@ user.errors
 
 ### 参考
 [RuboCopの Rails/InverseOf について調べた - sometimes I laugh](https://sil.hatenablog.com/entry/rubocop-rails-inverse-of)
+
+
+# Validation
+## 複合ユニーク制約
+外部キーは `_id` が必要
+
+uniqueness の scope に カラムを書く。
+複数の場合配列にする。
+
+```ruby
+validates :user_id, uniqueness: {:scope :target_user_id}
+validates :user_id, uniqueness: { scope: %i[target_user_id invisible_type] }
+```
