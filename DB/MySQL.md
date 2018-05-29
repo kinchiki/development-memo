@@ -1,3 +1,23 @@
+## startでエラー
+```
+Starting MySQL
+... ERROR! The server quit without updating PID file (/usr/local/var/mysql/xxx.local.pid).
+```
+
+`sudo /usr/local/var/mysql/xxx.local.err` を見るとこんなエラー。
+
+```
+/usr/local/Cellar/mysql@5.6/5.6.36_1/bin/mysqld: unknown variable 'default-character
+-set=utf8mb4'
+```
+
+ということでオフ、というか消しましょう。
+
+```sh
+[mysqld]
+# default-character-set=utf8mb4
+```
+
 ## テーブルとカラム一覧取得
 ```sql
 -- tabale 一覧
