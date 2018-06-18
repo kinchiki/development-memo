@@ -17,9 +17,23 @@
 - ブレークポイント削除 枠外にドラッグ
 - Editor > Show Invisibles
 
+
 ## Preferences
 ### diff で左に過去、右に最新を表示
 Source Control > Comparsion View > Local Revision on Right Side
 
 ### デバッグ
 Befaviors > Running > Starts debugger with
+
+
+## xcodeproj と xcworkspace
+### xcodeproj
+1つのライブラリやアプリのプロジェクトを表したもの
+
+### xcworkspace
+複数のプロジェクトをまとめたもの
+
+xcworkspaceを使用すると、アプリのプロジェクトと関連するライブラリ等のプロジェクトを分離しながらまとめてビルド可能
+
+### 参考
+[Xcode - cocoapodsで.xcworkspace(79742)｜teratail](https://teratail.com/questions/79742)
