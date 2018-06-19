@@ -27,7 +27,8 @@ SELECT カラム名1, カラム名2, ... FROM テーブル名１
 「テーブル1からカラム1、カラム2を取ってきた後に、結合の条件に従ってテーブル2からも値を取得し、ひっつけて１つのテーブルにしてくださいね」的な
 
 `FROM`のあとからは()でくくられてるイメージ。
-```
+
+```sql
 SELECT column1, column2, ... FROM table１
   INNER JOIN (table2 ON table1.columnX = table2.columnY)
 ```
@@ -41,9 +42,11 @@ SELECT column1, column2, ... FROM table１
 
 ## update
 一般的なかたち
-```
+
+```sql
 update テーブル名 set カラム = 値 where 条件
 ```
+
 
 ## LIKE
 - % 任意の文字列（なしも含む）
@@ -55,7 +58,7 @@ update テーブル名 set カラム = 値 where 条件
 ## DISTINCT, ALL
 重複業を除外してデータ取得
 
-```
+```sql
 SELECT DISTINCT name FROM goods;
 ```
 
