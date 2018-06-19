@@ -1,4 +1,24 @@
-# 内部結合
+## 複数insert
+該当カラム以外は決め打ちにして、selectで取ってくればいい。
+
+```sql
+INSERT INTO points (
+  user_id,
+  full_amount,
+  created_at,
+  updated_at
+)
+select
+  id,
+  100,
+  NOW(),
+  NOW()
+from users
+WHERE email LIKE 'hogehoge%@gmail.com';
+```
+
+
+## 内部結合
 ```
 SELECT カラム名1, カラム名2, ... FROM テーブル名１
   INNER JOIN テーブル名2 ON 結合の条件
