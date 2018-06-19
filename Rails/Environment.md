@@ -4,7 +4,7 @@
 1. `PCのIPアドレス:3000`を直打ち
 
 
-## Nokogiri Error
+## Nokogiri Error
 [ここを見る](http://www.nokogiri.org/tutorials/installing_nokogiri.html)
 
 
