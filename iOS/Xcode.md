@@ -11,6 +11,10 @@
 | cmd+option+Enter or option+click | ウィンドウ分割 |
 | cmd+Enter | ウィンドウ分割終了 |
 | ctrl+cmd+r | Runオンリー |
+| cmd+k | コンソールクリア |
+| alt+cmd+k | クリアしたコンソールの復活 |
+| shift+cmd+c | デバッグエリアにフォーカス |
+| cmd+y | ブレークポイントの有効無効切り替え |
 
 
 ## Tips
