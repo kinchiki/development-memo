@@ -1,3 +1,12 @@
+## 外部キーやユニークキーなどの確認
+```sql
+show create table tabal_name
+```
+
+参考
+[外部キーやユニークキーなどが貼られているか確認 - Webエンジニアの技術メモ　～PHP、SQL、Linuxなど～](http://d.hatena.ne.jp/moroto1122/20130202/1359733525)
+
+
 ## startでエラー
 ```
 Starting MySQL
