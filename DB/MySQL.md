@@ -1,3 +1,33 @@
+## rootのパスワードがわからなくなったら
+初期パスワードならこれ。
+
+```sh
+grep -e 'A temporary password is generated for root@localhost' /var/log/mysqld.log
+```
+
+それ以外なら、セーフモードで起動して変更する。
+
+```
+# セーフモードで起動
+$ mysqld_safe --skip-grant-tables &
+$ mysql -u root
+```
+
+```sql
+-- パスワードを更新
+use mysql;
+update user set password=PASSWORD("hogehoge") where User='root';
+flush privileges;
+quit;
+```
+
+```sh
+# 再起動
+$ service mysqld stop
+$ service mysqld start
+```
+
+
 ## 外部キーやユニークキーなどの確認
 ```sql
 show create table tabal_name
@@ -63,11 +93,12 @@ grant [role] on [DB].[table] to [user]@[host] [identified] by '[password]';
 grant all on test_db.* to test_user@'localhost' identified by '[password]';
 ```
 
-role - select, insert, update, delete, create, drop
+role - *(all), select, insert, update, delete, create, drop
 
 
 ## パスワード変更
 SET PASSWORD FOR user_name = 'new_password';
+
 
 ## Sequel Pro の エクスポートのチェックボックス
 - S: table structure
