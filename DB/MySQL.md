@@ -1,3 +1,23 @@
+## warnings が見たいとき
+`show warnings;` を叩くか `--show-warnings` をつけて起動するか、my.cnfに書く。
+
+```sql
+> show warnings;
+```
+
+```sh
+$ mysql --show-warnings -uroot -p test
+```
+
+```
+[mysql]
+show-warngins
+```
+
+参考
+[cl.pocari.org - MySQL の warnings をすぐに表示させる方法](http://cl.pocari.org/2007-10-01-1.html)
+
+
 ## 127.0.0.1で接続できない場合
 こう出る。
 Sequel Proだと `localhost` で接続できないから困る。
