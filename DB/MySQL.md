@@ -1,3 +1,24 @@
+## 127.0.0.1で接続できない場合
+こう出る。
+Sequel Proだと `localhost` で接続できないから困る。
+
+```
+Host '127.0.0.1' is not allowed to connect to this MySQL server
+```
+
+`127.0.0.1` に接続可能なユーザーを作成する。
+
+```sql
+use mysql;
+select user, host from mysql.user;
+grant all on db_name.* to user_name@'127.0.0.1' identified by 'your_password';
+```
+
+参考
+- [他のサーバに入れない。MySQLで他のサーバからのアクセスを許可する - ヌキのやる気のないエンジニアブログ](http://d.hatena.ne.jp/editnuki/20110813/1313177077)
+- [MySQL :: 外部ホストから接続を許可する [Tipsというかメモ]](http://tm.root-n.com/database:mysql:setup:allow_connect_remote_host)
+
+
 ## rootのパスワードがわからなくなったら
 初期パスワードならこれ。
 
@@ -17,6 +38,8 @@ $ mysql -u root
 -- パスワードを更新
 use mysql;
 update user set password=PASSWORD("hogehoge") where User='root';
+-- MySQL 5.7.6以降だとauthentication_string
+-- update user set authentication_string=password("k59XZurA") where User='root';
 flush privileges;
 quit;
 ```
@@ -26,6 +49,10 @@ quit;
 $ service mysqld stop
 $ service mysqld start
 ```
+
+参考
+- [MySQLでrootパスワードを忘れた場合の対処方法 | 東京上野のWeb制作会社LIG](https://liginc.co.jp/web/programming/mysql/87393)
+- [MySQL 5.7.6でroot用パスワードが変わらなくて困った話 - Qiita](https://qiita.com/gatchan0807/items/7323a5d2dd365308cb94)
 
 
 ## 外部キーやユニークキーなどの確認
