@@ -71,3 +71,14 @@ if let cat = animal as? Cat {
 ```
 
 https://qiita.com/aki/items/50fbab1a4c0df3f3d23f
+
+
+## IBOutlet & IBAction
+### IBOutlet
+要素とプログラムを結びつける方法
+
+### IBAction
+アクションとプログラムを結びつける方法
+
+参考
+[10分で試せる！ Swiftを使った初めてのiOSアプリ開発入門 - ICS MEDIA](https://ics.media/entry/6439/2)
