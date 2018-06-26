@@ -1,3 +1,12 @@
+## 最新データを削除など
+名前変えないとエラーになる。
+MySQLだけ？
+
+```sql
+delete from users where id = (select max(id) from (select id from users) as tmp);
+```
+
+
 ## 複数insert
 該当カラム以外は決め打ちにして、selectで取ってくればいい。
 
