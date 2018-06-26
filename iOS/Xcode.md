@@ -20,7 +20,7 @@
 ## Tips
 - ブレークポイント削除 枠外にドラッグ
 - Editor > Show Invisibles
-
+- alt+Enter 改行
 
 ## Preferences
 ### diff で左に過去、右に最新を表示
