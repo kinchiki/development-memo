@@ -45,15 +45,3 @@ f.input :email, as: :string => text
 f.input :email, as: :text => textarea
 f.input :email, as: :date_picker => date_picker
 ```
-
-
-## ActiveRecord_Relationの + について
-`ActiveRecord_Relation` 同士を足すと `Array` になる。
-よって `find_each` など `ActiveRecord_Relation` クラスに存在するメソッドを呼ぶと `NoMethodError: undefined method` になる。
-
-```ruby
-a = User.where.active
-b = User.where.inactive
-users = a+b
-users.find_each {|u| u.id} #=> error
-```

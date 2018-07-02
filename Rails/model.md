@@ -1,4 +1,16 @@
 # Active Record
+## ActiveRecord_Relationの + について
+`ActiveRecord_Relation` 同士を足すと `Array` になる。
+よって `find_each` など `ActiveRecord_Relation` クラスに存在するメソッドを呼ぶと `NoMethodError: undefined method` になる。
+
+```ruby
+a = User.where.active
+b = User.where.inactive
+users = a+b
+users.find_each {|u| u.id} #=> error
+```
+
+
 ## in
 `hoge.where(カラム: 配列)` で可能
 
