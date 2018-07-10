@@ -41,3 +41,18 @@ Keyboard-interactive authentication is disabled to avoid man-in-the-middle attac
 ### 参考
 - https://qiita.com/grgrjnjn/items/8ca33b64ea0406e12938
 - https://www.uramiraikan.net/Works/entry-1970.html
+
+
+## 急にsshできなくなる
+```
+$ ssh -T git@github.com
+git@github.com: Permission denied (publickey).
+```
+
+解決方法。
+`ssh-add` だけではだめだった。
+
+```
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_rsa
+```
