@@ -1,3 +1,17 @@
+## ローカルだけ除外する
+```sh
+# リポジトリの更新を取り込む方法
+$ git update-index --assume-unchanged <fila_name>
+$ git update-index --no-assume-unchanged <fila_name>
+
+# リポジトリの更新を取り込まない方法
+$ git update-index --skip-worktree <fila_name>
+$ git update-index --no-skip-worktree <fila_name>
+```
+参考
+https://qiita.com/usamik26/items/56d0d3ba7a1300625f92
+
+
 ## find てきなやつ
 `ls-files` を使う。
 
