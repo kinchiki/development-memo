@@ -9,7 +9,7 @@
 | shift+cmd+K | Clean |
 | cmd+. | ビルドキャンセル |
 | cmd+option+Enter or option+click | ウィンドウ分割 |
-| cmd+Enter | ウィンドウ分割終了 |
+| cmd+Enter | ウィンドウ分割終了 |
 | ctrl+cmd+r | Runオンリー |
 | cmd+k | コンソールクリア |
 | alt+cmd+k | クリアしたコンソールの復活 |
