@@ -7,8 +7,10 @@ $ git push --delete origin <branch_name>
 $ git push origin :branch_name
 ```
 
+参考
+[Git/git push/リモートブランチの削除 - yanor.net/wiki](http://yanor.net/wiki/?Git%2Fgit%20push%2F%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E5%89%8A%E9%99%A4)
 
-## ローカルだけ除外する
+## ローカルの特定ファイルを管理対象外にする
 ```sh
 # リポジトリの更新を取り込む方法
 $ git update-index --assume-unchanged <fila_name>
@@ -18,6 +20,7 @@ $ git update-index --no-assume-unchanged <fila_name>
 $ git update-index --skip-worktree <fila_name>
 $ git update-index --no-skip-worktree <fila_name>
 ```
+
 参考
 https://qiita.com/usamik26/items/56d0d3ba7a1300625f92
 
