@@ -1,3 +1,13 @@
+## delete remote branch
+上の方法はgitのバージョンが古いとできない
+
+```
+$ git push --delete origin <branch_name>
+# or old way
+$ git push origin :branch_name
+```
+
+
 ## ローカルだけ除外する
 ```sh
 # リポジトリの更新を取り込む方法
