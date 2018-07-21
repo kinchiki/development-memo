@@ -11,6 +11,7 @@
 | cmd+option+Enter or option+click | ウィンドウ分割 |
 | cmd+Enter | ウィンドウ分割終了 |
 | ctrl+cmd+r | Runオンリー |
+| ctrl+cmd+b | compile current file |
 | cmd+k | コンソールクリア |
 | alt+cmd+k | クリアしたコンソールの復活 |
 | shift+cmd+c | デバッグエリアにフォーカス |
