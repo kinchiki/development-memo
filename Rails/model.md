@@ -1,4 +1,20 @@
 # Active Record
+## ?(Rails >= 5.0)
+
+`present? && self != 0` か？
+
+```ruby
+profile.job_id = 0
+profile.job_id? #=> false
+
+profile.job_id = 1
+profile.job_id? #=> true
+
+profile.job_id = -1
+profile.job_id? #=> true
+```
+
+
 ## ActiveRecord_Relationの + について
 `ActiveRecord_Relation` 同士を足すと `Array` になる。
 よって `find_each` など `ActiveRecord_Relation` クラスに存在するメソッドを呼ぶと `NoMethodError: undefined method` になる。
