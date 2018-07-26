@@ -1,3 +1,14 @@
+## インデント
+- =: indent at current line
+- \>>: indent
+- <<: reverse indent
+- ctrl+t: indent on insert mode (カーソルが行頭ならTabも可)
+- ctrl+d: reverse indent on insert mode (カーソルが行頭ならbackspaceでも可)
+
+reference  
+[覚えておきたい Vim コマンド 備忘録 - Qiita](https://qiita.com/colorrabbit/items/755cfbb0e97d48280775)
+
+
 ## 矩形選択
 `ctrl+v` で矩形選択(VISUAL BLOCK)モード
 
