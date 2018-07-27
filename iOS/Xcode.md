@@ -44,3 +44,8 @@ xcworkspaceを使用すると、アプリのプロジェクトと関連するラ
 
 ### 参考
 [Xcode - cocoapodsで.xcworkspace(79742)｜teratail](https://teratail.com/questions/79742)
+
+
+
+## scheme作成
+[[Xcode] ビルド環境を切り替えるためにSchemeを追加する ｜ Developers.IO](https://dev.classmethod.jp/smartphone/iphone/xcode-build-environment-adding-scheme/)
