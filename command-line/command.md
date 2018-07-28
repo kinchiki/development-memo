@@ -3,7 +3,7 @@
 # -U でソートしない（高速にする）、 -lで一行ずつ表示する
 
 # ディレクトリ含めてカウント
-$ ls -Ul | wc -l
+$ ls -U1 | wc -l
 
 # file only
 $ ls -F | grep -v / | wc -l
