@@ -1,4 +1,22 @@
+## shell script
+[これだけ覚えておけばOK！シェルスクリプトで冪等性を担保するためのTips集 - Qiita](https://qiita.com/yn-misaki/items/3ec0605cba228a7d5c9a)
+
+[変数を使用する | UNIX & Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/variable.html)
+
+[シェルで変数のインクリメントに expr を使うと100倍遅い件 - Qiita](https://qiita.com/d_nishiyama85/items/a117d59a663cfcdea5e4)
+
+`$()` と `` はほぼ同じだが、`$()` のほうが高機能
+
+
 ## sed
+```sh
+grep 'echo $this->element('\'front/common/bread_crumb_list\'');' -n $file | cut -d ":" -f 1
+
+sed -i -E '/^<(ol|ul) class="pankuzu">$/,/^<\/(ol|ul)>$/s/^<li><a href="(.+)" ?>(.+)<\/a><\/li>$/$this->Html->addCrumb('\'\\2\',\ \'\\1\'');/g' $file
+```
+
+[ある文字列をファイルの特定行に挿入するコマンド - 元RX-7乗りの適当な日々](http://d.hatena.ne.jp/rx7/20110310/p1)
+
 mac で -i で `invalid command code`
 http://arshavin0909.hateblo.jp/entry/2012/08/29/150609
 
