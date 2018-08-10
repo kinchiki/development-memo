@@ -1,3 +1,12 @@
+## process all kill
+```
+# show ps
+ps -ef | grep -v grep | grep sidekiq
+# kill all
+kill -9 `ps -ef | grep sidekiq | grep -v grep |  awk '{print $2;}'`
+```
+
+
 ## shell script
 [これだけ覚えておけばOK！シェルスクリプトで冪等性を担保するためのTips集 - Qiita](https://qiita.com/yn-misaki/items/3ec0605cba228a7d5c9a)
 
