@@ -1,3 +1,24 @@
+## datetimeやdateに足す
+use `DATE_ADD` .
+
+```sql
+insert into points (
+  user_id,
+  full_amount,
+  expired_at,
+  created_at,
+  updated_at
+)
+values (
+  523839,
+  30,
+  30,
+  select DATE_ADD(NOW(),INTERVAL 3 MONTH),
+  NOW(),
+  NOW()
+)
+```
+
 ## warnings が見たいとき
 `show warnings;` を叩くか `--show-warnings` をつけて起動するか、my.cnfに書く。
 
