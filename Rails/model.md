@@ -1,4 +1,15 @@
 # Active Record
+## find_in_batches
+ブロック引数は配列
+
+```ruby
+Profile.order(id: :desc).limit(100).find_in_batches(batch_size: 10) do |profile|
+  p profile.size => 10
+  p profile.class => array
+end
+```
+
+
 ## ?(Rails >= 5.0)
 
 `present? && self != 0` か？
