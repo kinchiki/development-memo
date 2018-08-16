@@ -127,10 +127,16 @@ Starting MySQL
 
 ## テーブルとカラム一覧取得
 ```sql
--- tabale 一覧
+-- table 一覧
+show tables;
+-- use していなかったら
 show tables from database_name;
+
 -- カラム 一覧
-show columns from tabale_name;
+describe table_name;
+-- or
+show columns from table_name;
+
 -- テーブルとカラム一覧
 use information_schema;
 select table_name, column_name from columns where table_schema='database_name';
