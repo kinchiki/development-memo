@@ -1,3 +1,12 @@
+## execute background
+```sh
+$ [command] &
+
+# ssh などでログアウトしても実行させたい場合
+$ nohup [command] &
+```
+
+
 ## 指定した行と行の間だけ処理
 ```sh
 sed -n '7000000,7030000p' production.log  | grep hogehoge
