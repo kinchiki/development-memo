@@ -65,7 +65,7 @@ update テーブル名 set カラム = 値 where 条件
 
 
 ## DISTINCT, ALL
-重複業を除外してデータ取得
+重複を除外してデータ取得
 
 ```sql
 SELECT DISTINCT name FROM goods;
