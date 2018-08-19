@@ -1,3 +1,17 @@
+## set utf8mb4
+`my.cnf`
+
+```
+[mysqld]
+character-set-server=utf8mb4
+
+[client]
+default-character-set=utf8mb4
+```
+
+すでに存在するDBは別途設定が必要。
+
+
 ## import csv or tsv by mysql8.0 
 `my.cnf` に以下記載。
 
