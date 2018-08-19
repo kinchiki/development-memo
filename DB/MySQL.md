@@ -32,7 +32,7 @@ $ mysql --show-warnings -uroot -p test
 
 ```
 [mysql]
-show-warngins
+show-warnings
 ```
 
 参考
