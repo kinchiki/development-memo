@@ -1,3 +1,28 @@
+## import csv or tsv by mysql8.0 
+`my.cnf` に以下記載。
+
+```
+[client]
+loose-local-infile=1
+```
+
+mysql consoleで
+
+```sql
+SET PERSIST local_infile= 1;
+SELECT @@local_infile; -- 1ならOK
+```
+
+その後 `mysqlimport` でOK
+
+```
+$ mysqlimport -u root --local db_name path
+```
+
+参考
+[MySQL へ大量のCSVファイルをbashでインポートする - Qiita](https://qiita.com/nobu-maple/items/b33db6c765b9e6994102)
+
+
 ## datetimeやdateに足す
 use `DATE_ADD` .
 
