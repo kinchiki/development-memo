@@ -1,4 +1,24 @@
 # Active Record
+## column に対する破壊的メソッド
+通常の変数と同じ。
+
+値は変わるがsaveされない。
+非破壊的メソッドなら値自体も変わらない。
+
+```ruby
+user = User.last
+user.name #=> 'joh smith'
+
+user.name.slice(0..3) #=> 'joh '
+user.name #=> 'joh smith'
+user.will_save_change_to_email? #=> false
+
+user.name.slice!(0..3) #=> 'joh '
+user.name
+user.will_save_change_to_email? #=> true
+```
+
+
 ## find_in_batches
 ブロック引数は配列
 
