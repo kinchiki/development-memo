@@ -14,7 +14,7 @@ user.name #=> 'joh smith'
 user.will_save_change_to_email? #=> false
 
 user.name.slice!(0..3) #=> 'joh '
-user.name
+user.name #=> 'smith'
 user.will_save_change_to_email? #=> true
 ```
 
