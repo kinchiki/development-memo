@@ -1,3 +1,41 @@
+## String deletion and return value
+文字列から文字を削除したい場合のメソッドとその返り値
+
+- slice, []: 返り値は削除した文字（指定した範囲）
+- delete: 返り値は削除した後の文字列。一文字ずつ判断しているため注意が必要
+- sub, gsub: 返り値は置換した後の文字列
+
+```ruby
+# slice, []
+string = 'aioueaiueo'
+string.slice(0..1) #=> "ai"
+string #=> "aioueaiueo"
+string.slice!(0..1) #=> "ai"
+string #=> "oueaiueo"
+string[0..1] = '' #=> ""
+string #=> "eaiueo"
+
+# delete
+string = 'aioueaiueo'
+string.delete('au') #=> "ioeieo"
+string #=> "aioueaiueo"
+string.delete!('au') #=> "ioeieo"
+string #=> "ioeieo"
+
+# sub
+string = 'aioueaiueo'
+string.sub('a', '') #=> "ioueaiueo"
+string #=> "aioueaiueo"
+string.gsub('a', '') #=> "ioueiueo"
+string #=> "aioueaiueo"
+string.sub!('a', '') #=> "ioueaiueo"
+string #=> "ioueaiueo"
+```
+
+reference
+[code161](http://doc.code161.com/ruby/string-delete-method/)
+[文字列の一部を削除する - Ruby Tips!](http://rubytips86.hatenablog.com/entry/2014/03/20/155851)
+
 ## ループのインデックス
 - `each_with_index` は0から開始
 - `each.with_index` は引数の値から開始
