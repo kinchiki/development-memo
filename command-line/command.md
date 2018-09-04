@@ -1,3 +1,6 @@
+## ファイル名の置換 （renameで正規表現が使えないとき）
+[UNIX・Linuxでファイル名・フォルダ名の一括置換を行う | 俺的備忘録 〜なんかいろいろ〜](https://orebibou.com/2015/07/unix%E3%83%BBlinux%E3%81%A7%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E3%83%BB%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E5%90%8D%E3%81%AE%E4%B8%80%E6%8B%AC%E7%BD%AE%E6%8F%9B%E3%82%92%E8%A1%8C%E3%81%86/#2rename)
+
 ## execute background
 ```sh
 $ [command] &
