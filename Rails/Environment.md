@@ -5,7 +5,8 @@
 
 
 ## Nokogiri Error
-[ここを見る](http://www.nokogiri.org/tutorials/installing_nokogiri.html)
+公式ページに解決方法が載っているのでそれを見る。
+[Installing Nokogiri - Nokogiri 鋸](http://www.nokogiri.org/tutorials/installing_nokogiri.html)
 
 
 ### 解決作1
@@ -24,56 +25,22 @@ $ bundle install
 ```
 
 
-## couldn't find file 'webpack-bundle' with type 'application/javascript' で死ぬ
-### 結論
-こんな感じのコマンド叩けばよい？
-
-```npm run build:development```
-
-### 探り方
-`package.json` の `scripts` 見る
-
-例えば以下
-```json
-  "scripts": {
-    "postinstall": "cd client && npm install",
-    "rails-server": "bundle exec foreman start -f Procfile.dev",
-    "hot-dev": "bundle exec foreman start client -f Procfile.hot && bundle exec foreman start -f Procfile.hot -m all=1,client=0",
-    "test": "rspec",
-    "eslint": "eslint client/Couplink/libs/"
-  },
-```
-
-`Procfile.dev` の `client` を見る
-
-例えば以下
+## rmagickでrails sがこける
 ```sh
-client: sh -c 'rm app/assets/webpack/* || true && cd client && npm run build:development'
-```
-
-`client/package.json` の `scripts` 見る
-
-例えば以下
-```json
-  "scripts": {
-    "build:test": "webpack --config webpack.config.js",
-    "build:production": "NODE_ENV=production webpack --config webpack.config.js",
-    "build:development": "webpack -w --config webpack.config.js",
-    "build:development:once": "webpack --config webpack.config.js",
-    "build:hot": "webpack-dev-server --config webpack.hot.config --progress",
-    "test": "jest",
-    "test:watch": "npm test -- --watch"
-  },
+$ bundle exec gem uninstall rmagick
+$ PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig bundle install --path vendor/bundle
 ```
 
 
-## imagemagick をアップデートして rmagick を入れ直す
-### 画像アップロードが失敗する（エラー画面にはならない）
+## 画像アップロードが失敗する（エラー画面にはならない）
+### ログ
 ```sh
 Filename Failed to manipulate with rmagick, maybe it is not an image? Original Error: unable to load module `/usr/local/Cellar/imagemagick@6/6.9.8-10/lib/ImageMagick//modules-Q16/coders/jpeg.la': file not found @ error/module.c/OpenModule/1290
 ```
 
-### imagemagick オプション込みで入れ直し（これはやらなくてよいかも）
+imagemagick をアップデートして rmagick を入れ直す
+
+### imagemagick オプション込みで入れ直し（これは別にやらなくてよい）
 ```sh
 $ brew install imagemagick@6 --build-from-source
 ```
@@ -92,14 +59,20 @@ $ gem update --system
 $ gem update
 ```
 
-多分間違えて `bundle exec uninstall rmagick(gemがない)` としていただけで、失敗することはないと思う。
+多分間違えて `bundle exec uninstall rmagick (gemが抜けている)` としていただけで、失敗することはないと思う。
 
 
 ## imagemagick をアップデートしてエラー
 `brew upgrade` で imagemagick@6 をアップデートしたら `rails s` がエラーになった。
 
-imagemagick のバージョンを落とす。
+おそらく解決はこれだけでよい
 
+```sh
+$ bundle exec gem uninstall rmagick
+$ PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig bundle install --path vendor/bundle
+```
+
+### imagemagick のバージョンを落とす解決方法
 brew switch
 
 もしアンインストールしていたら、gitのコミットを戻す。
@@ -263,7 +236,7 @@ Gem Load Error is: Could not find a JavaScript runtime. See https://github.com/r
 node を入れればOK
 
 以下全文。
-`rails c` の方がわかりやすい。
+`rails c` の出力の方が少なくてわかりやすい。
 
 ```sh
 Traceback (most recent call last):
@@ -380,6 +353,7 @@ bin/rails:3:in `<main>'
 Bundler Error Backtrace:
 ```
 
+
 ## rails c や puma start で redis で落ちる
 `invalid uri scheme '' (ArgumentError)` で落ちる。
 
@@ -457,3 +431,47 @@ Traceback (most recent call last):
 	 2: from bundle/ruby/2.5.0/gems/redis-4.0.1/lib/redis.rb:38:in `new'
 	 1: from bundle/ruby/2.5.0/gems/redis-4.0.1/lib/redis/client.rb:79:in `initialize'
 bundle/ruby/2.5.0/gems/redis-4.0.1/lib/redis/client.rb:415:in `_parse_options': invalid uri scheme '' (ArgumentError)
+```
+
+
+## couldn't find file 'webpack-bundle' with type 'application/javascript' で死ぬ
+### 結論
+こんな感じのコマンド叩けばよい？
+
+```npm run build:development```
+
+### 探り方
+`package.json` の `scripts` 見る
+
+例えば以下
+```json
+  "scripts": {
+    "postinstall": "cd client && npm install",
+    "rails-server": "bundle exec foreman start -f Procfile.dev",
+    "hot-dev": "bundle exec foreman start client -f Procfile.hot && bundle exec foreman start -f Procfile.hot -m all=1,client=0",
+    "test": "rspec",
+    "eslint": "eslint client/Couplink/libs/"
+  },
+```
+
+`Procfile.dev` の `client` を見る
+
+例えば以下
+```sh
+client: sh -c 'rm app/assets/webpack/* || true && cd client && npm run build:development'
+```
+
+`client/package.json` の `scripts` 見る
+
+例えば以下
+```json
+  "scripts": {
+    "build:test": "webpack --config webpack.config.js",
+    "build:production": "NODE_ENV=production webpack --config webpack.config.js",
+    "build:development": "webpack -w --config webpack.config.js",
+    "build:development:once": "webpack --config webpack.config.js",
+    "build:hot": "webpack-dev-server --config webpack.hot.config --progress",
+    "test": "jest",
+    "test:watch": "npm test -- --watch"
+  },
+```
