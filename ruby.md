@@ -1,3 +1,14 @@
+## unless と or
+unless A || B
+AとBどちらもfalseじゃないと実行されない
+
+A || B
+どちらかがtrueならteue
+
+unless C
+Cがfalseなら実行
+
+
 ## String deletion and return value
 文字列から文字を削除したい場合のメソッドとその返り値
 
