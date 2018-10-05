@@ -1,4 +1,12 @@
 # Active Record
+## callback
+https://railsguides.jp/active_record_callbacks.html#%E3%83%88%E3%83%A9%E3%83%B3%E3%82%B6%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF
+
+https://qiita.com/rtoya/items/29cef3e328299781a328
+
+https://qiita.com/htz/items/56798d53ec5988733fc6
+
+
 ## column に対する破壊的メソッド
 通常の変数と同じ。
 
