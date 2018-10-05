@@ -54,18 +54,20 @@ end
 ## caller
 メソッドがどこから呼ばれたかを出す
 
+
 ## included of Module
 init みたいなもの。
 
 [引用](https://ref.xaio.jp/ruby/classes/module/included)
 
->includeメソッドによってモジュールが他のモジュールやクラスにインクルードされたあとに呼び出されます。引数にはモジュールをインクルードするクラスやモジュールが入ります。
+> includeメソッドによってモジュールが他のモジュールやクラスにインクルードされたあとに呼び出されます。引数にはモジュールをインクルードするクラスやモジュールが入ります。
 
 
 ## positive?
-レシーバが 0 より大きい場合に true 、そうでない場合に false を返す
+レシーバが 0 より大きい場合にtrueを、そうでない場合にfalseを返す
 
 https://docs.ruby-lang.org/ja/latest/method/Numeric/i/positive=3f.html
+
 
 ## クラスメソッド（self.method名とか）
 インスタンスなしで実行可能なメソッド。
@@ -94,10 +96,12 @@ Hage.hege # => hege
 
 参考：[Rubyのクラスメソッドとインスタンスメソッドの例](https://qiita.com/tbpgr/items/56eb65c0ea5882abbb07)
 
+
 ## 引数
 ### *
 配列となる
-```
+
+```ruby
 def foo(x, *xs)
   puts "#{x} : #{xs.inspect}"   # Object#inspect は p のような詳細な内部表示
 end
