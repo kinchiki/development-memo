@@ -1,3 +1,14 @@
+## 複数要素毎に処理
+each_cons 重複あり
+each_slice 重複なし
+
+参考
+
+- [配列を走査する際に現在の値と次の値を比較したいなら Enumerable#each_cons が便利 - Qiita](https://qiita.com/QUANON/items/3e271ccba222f9296c49)
+- [Rubyで配列をある要素数ごとに分割するならArray#each_sliceを使おう -- ぺけみさお](https://www.xmisao.com/2014/07/01/ruby-each-slice.html)
+- [RubyのEnumerable#each_consを使ってN-gramを簡単に作る -- ぺけみさお](https://www.xmisao.com/2016/10/29/create-ngram-using-each-cons-in-ruby.html)
+
+
 ## unless と or
 unless A || B
 AとBどちらもfalseじゃないと実行されない
