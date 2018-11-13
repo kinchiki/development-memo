@@ -1,3 +1,10 @@
+## val()でchangeイベントは発火しない (val() doesn't raise change event)
+`.trigger('change',[true])` がいいらしい。
+
+参考
+[jQueryのval()で値を変更してもchangeイベントは発火しない - Qiita（↑はコメント）](https://qiita.com/foo9/items/51ffdaa5305fbc4efa58)
+
+
 ## 要素追加 ( add element )
 - append() その要素内の中に要素追加
 - prepend() その要素内の先頭に要素追加
