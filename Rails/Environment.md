@@ -1,3 +1,32 @@
+## An error occurred while installing ffi
+how to resolve
+
+run below command.
+
+```sh
+LDFLAGS="-L/usr/local/opt/libffi/lib" PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig" bundle install --path vendor/bundle
+```
+
+happen `Gem::Ext::BuildError: ERROR: Failed to build gem native extension.`
+
+```sh
+An error occurred while installing ffi (1.10.0), and Bundler cannot continue.
+Make sure that `gem install ffi -v '1.10.0' --source 'https://rubygems.org/'` succeeds before bundling.
+
+In Gemfile:
+  selenium-webdriver was resolved to 3.141.0, which depends on
+    childprocess was resolved to 0.9.0, which depends on
+      ffi
+         run  bundle exec spring binstub --all
+bundler: command not found: spring
+Install missing gem executables with `bundle install`
+```
+
+reference
+
+- https://github.com/ffi/ffi/issues/651#issuecomment-434927135
+- [gem ffi のインストールに失敗するときのコンパイラオプション指定方法 - Qiita](https://qiita.com/ts-3156/items/cb2aba33e0bd9d088f4f)
+
 ## スマホからlocalに接続
 1. `rails s -b 0.0.0.0`
 1. 同じWifiに接続
