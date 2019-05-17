@@ -1,3 +1,20 @@
+## unixtimeの日数の差
+60 / 60 / 24 で割れば、日数になる
+
+```sql
+select
+    from_unixtime(users.reg_date)
+    , from_unixtime(us.reg_date)
+    , format( ((us.reg_date - user.reg_date) / 60 / 60 / 24), 1) as '会員登録からの日数'
+from
+    users
+    inner join user_subscriptions as us
+        on us.user_id = users.id
+;
+```
+
+
+
 ## 最新データを削除など
 名前変えないとエラーになる。
 MySQLだけ？
