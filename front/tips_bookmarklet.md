@@ -4,6 +4,14 @@
 - [JavaScript アロー関数を説明するよ - Qiita](https://qiita.com/may88seiji/items/4a49c7c78b55d75d693b)
 - [Node.textContent - Web API | MDN](https://developer.mozilla.org/ja/docs/Web/API/Node/textContent)
 
+## 要素を取得して表示
+```js
+javascript:
+var clauses = document.getElementsByTagName('h4');
+Array.prototype.forEach.call(clauses, function(elm) {
+  console.log(elm.textContent);
+});
+```
 
 ## Qiitaのアドベントカレンダーの記事数とユニーク投稿者
 ```js
