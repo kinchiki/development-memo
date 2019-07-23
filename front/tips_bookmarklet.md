@@ -3,6 +3,9 @@
 - [要素の取得方法まとめ - Qiita](https://qiita.com/amamamaou/items/25e8b4e1b41c8d3211f4#documentfragment-%E3%81%A7%E3%81%AF%E4%BD%BF%E3%81%88%E3%82%8B%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%81%8C%E9%99%90%E3%82%89%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B)
 - [JavaScript アロー関数を説明するよ - Qiita](https://qiita.com/may88seiji/items/4a49c7c78b55d75d693b)
 - [Node.textContent - Web API | MDN](https://developer.mozilla.org/ja/docs/Web/API/Node/textContent)
+- [連番の数字の配列を作成（es2015 ver) - Qiita](https://qiita.com/sakymark/items/710f0b9a632c375fbc31)
+- [JavaScript - 配列を連番で初期化する | ITライフ](https://infoteck-life.com/a0066-js-array-initial-serial/)
+
 
 ## 要素を取得して表示
 ```js
