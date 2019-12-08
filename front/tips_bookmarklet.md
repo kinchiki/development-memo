@@ -7,6 +7,14 @@
 - [JavaScript - 配列を連番で初期化する | ITライフ](https://infoteck-life.com/a0066-js-array-initial-serial/)
 
 
+## コメントの注意 // はエラー (error of commnet)
+`//` のコメントはエラーになるため、`/* */` を使うこと
+
+
+## ;のつけますれ注意 (note ;)
+`;` をつけ忘れるとエラー
+
+
 ## 要素を取得して表示
 ```js
 javascript:
@@ -69,3 +77,4 @@ javascript: (
     document.querySelector('input[name="TEL"]').value = '090-0000-0000';
   }
 ) ();
+```
