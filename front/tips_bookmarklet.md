@@ -7,6 +7,18 @@
 - [JavaScript - 配列を連番で初期化する | ITライフ](https://infoteck-life.com/a0066-js-array-initial-serial/)
 
 
+## クリップボードにコピー navigator.clipboard.writeText
+`navigator.clipboard.writeText` を使う。Promiseを返すため、`async`と`await`を使い、適度に`setTimeout`で時間をとる（おそらく100あれば十分）。
+
+```js
+if(navigator.clipboard) {
+  setTimeout((async() => {
+    await navigator.clipboard.writeText('hogehoge');
+    alert('コピーしました');
+  }), 250);
+}
+```
+
 ## コメントの注意 // はエラー (error of commnet)
 `//` のコメントはエラーになるため、`/* */` を使うこと
 
