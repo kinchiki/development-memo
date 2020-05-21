@@ -1,3 +1,10 @@
+## 週次（yyyy/mm/dd (w)形式）
+MySQLだけかも
+
+```sql
+date_format(created_at - interval weekday(created_at) day, '%Y/%m/%d (%a)')
+```
+
 ## unixtimeの日数の差
 60 / 60 / 24 で割れば、日数になる
 
