@@ -5,6 +5,63 @@ MySQLだけかも
 date_format(created_at - interval weekday(created_at) day, '%Y/%m/%d (%a)')
 ```
 
+## datetimeやdateに時間を足したり引いたり
+use `date_add` or `date_sub`.
+
+```sql
+insert into users (
+  user_id,
+  created_at,
+  updated_at
+)
+values (
+  1,
+  select date_add(now(),interval 3 month), -- 今より3ヶ月後
+  select date_add(now(),interval 3 month) -- 今より3ヶ月後
+)
+```
+
+## カラムや外部キーなどの確認
+### テーブルとカラム一覧
+MySQLだけかも
+
+```sql
+-- table 一覧
+show tables;
+-- use していなかったら
+show tables from database_name;
+
+-- カラム 一覧
+describe [table_name];
+-- or
+show columns from [table_name];
+
+-- テーブルとカラム一覧
+use information_schema;
+select [table_name], [column_name] from columns where table_schema='database_name';
+```
+
+
+### 外部キーやユニークキー
+MySQLだけかも
+
+```sql
+show create table [tabal_name];
+```
+
+参考
+[外部キーやユニークキーなどが貼られているか確認 - Webエンジニアの技術メモ　～PHP、SQL、Linuxなど～](http://d.hatena.ne.jp/moroto1122/20130202/1359733525)
+
+
+## インデックスが貼られているかの確認
+MySQLだけかも
+
+```
+show index from [tabal_name];
+```
+
+[MySQLでインデックスが貼られているかを確認するSQL - Qiita](https://qiita.com/pugiemonn/items/2edf5d7967fb45dd5196)
+
 ## unixtimeの日数の差
 60 / 60 / 24 で割れば、日数になる
 

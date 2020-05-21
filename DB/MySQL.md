@@ -37,27 +37,6 @@ $ mysqlimport -u root --local db_name path
 [MySQL へ大量のCSVファイルをbashでインポートする - Qiita](https://qiita.com/nobu-maple/items/b33db6c765b9e6994102)
 
 
-## datetimeやdateに足す
-use `DATE_ADD` .
-
-```sql
-insert into points (
-  user_id,
-  full_amount,
-  expired_at,
-  created_at,
-  updated_at
-)
-values (
-  523839,
-  30,
-  30,
-  select DATE_ADD(NOW(),INTERVAL 3 MONTH),
-  NOW(),
-  NOW()
-)
-```
-
 ## warnings が見たいとき
 `show warnings;` を叩くか `--show-warnings` をつけて起動するか、my.cnfに書く。
 
@@ -135,15 +114,6 @@ $ service mysqld start
 - [MySQL 5.7.6でroot用パスワードが変わらなくて困った話 - Qiita](https://qiita.com/gatchan0807/items/7323a5d2dd365308cb94)
 
 
-## 外部キーやユニークキーなどの確認
-```sql
-show create table tabal_name
-```
-
-参考
-[外部キーやユニークキーなどが貼られているか確認 - Webエンジニアの技術メモ　～PHP、SQL、Linuxなど～](http://d.hatena.ne.jp/moroto1122/20130202/1359733525)
-
-
 ## startでエラー
 ```
 Starting MySQL
@@ -164,22 +134,6 @@ Starting MySQL
 # default-character-set=utf8mb4
 ```
 
-## テーブルとカラム一覧取得
-```sql
--- table 一覧
-show tables;
--- use していなかったら
-show tables from database_name;
-
--- カラム 一覧
-describe table_name;
--- or
-show columns from table_name;
-
--- テーブルとカラム一覧
-use information_schema;
-select table_name, column_name from columns where table_schema='database_name';
-```
 
 
 ## バージョン確認
