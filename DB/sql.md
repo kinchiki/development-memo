@@ -1,3 +1,20 @@
+## 変数 ( variable )
+MySQLだけかも
+
+`@variable` で変数を設定できる。
+
+```sql
+set @start_date = '2020-02-10', @end_date = '2020-02-20', @end_date_1_day_ago = date_sub(@end_date, interval 1 day);
+select @start_date, @end_date, @end_date_1_day_ago;
+
+select
+    *
+from
+    users
+where
+    created_at between @start_date and @end_date
+;
+
 ## 週次（yyyy/mm/dd (w)形式）
 MySQLだけかも
 
