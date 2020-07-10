@@ -1,7 +1,8 @@
 ## 変数 ( variable )
 MySQLだけかも
 
-`@variable` で変数を設定できる。
+`set @variable = ...;` で変数を設定できる。
+変数の値には、静的な値だけでなく、四則演算や関数の結果を使える。
 
 ```sql
 set @start_date = '2020-02-10', @end_date = '2020-02-20', @end_date_1_day_ago = date_sub(@end_date, interval 1 day);
