@@ -7,6 +7,32 @@
 - [JavaScript - 配列を連番で初期化する | ITライフ](https://infoteck-life.com/a0066-js-array-initial-serial/)
 
 
+## 選択されたMarkdownの画像タグをimgタグに変換したテキストをコピーする
+```js
+javascript:(function() {
+  const baseTag1 = '<img src="';
+  const baseTag2 = '" height="420px">';
+  const uploadedImageUrl = window.getSelection().toString();
+  const imageUrlRegex = /\/.+\.(mp4|avi|mov|png|jpg|jpeg|gif|bmp)/;
+  const imageUrl = imageUrlRegex.exec(uploadedImageUrl);
+  createImageTag();
+
+  function createImageTag() {
+    if (imageUrl) {
+      const imageTag = `${baseTag1}${imageUrl[0]}${baseTag2}`;
+      if(navigator.clipboard) {
+        setTimeout((async() => {
+          await navigator.clipboard.writeText(imageTag);
+          alert(`以下のテキストがコピーされました！\n${imageTag}`);
+        }), 200);
+      }
+    } else {
+      alert(`タグが選択されていないか形式が間違っています。\n選択されたテキスト\n${uploadedImageUrl}\n\n正しい例\n![xxx](/uploads/xxxxxxxxxx/xxx.png)`);
+    }
+  }
+})();
+```
+
 ## クリップボードにコピー navigator.clipboard.writeText
 `navigator.clipboard.writeText` を使う。Promiseを返すため、`async`と`await`を使い、適度に`setTimeout`で時間をとる（おそらく100あれば十分）。
 
