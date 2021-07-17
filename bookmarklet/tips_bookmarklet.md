@@ -10,25 +10,28 @@
 ## 選択されたMarkdownの画像タグをimgタグに変換したテキストをコピーする
 ```js
 javascript:(function() {
-  const baseTag1 = '<img src="';
-  const baseTag2 = '" height="420px">';
-  const uploadedImageUrl = window.getSelection().toString();
-  const imageUrlRegex = /\/.+\.(mp4|avi|mov|png|jpg|jpeg|gif|bmp)/;
-  const imageUrl = imageUrlRegex.exec(uploadedImageUrl);
-  createImageTag();
+  const selectionText = window.getSelection().toString();
+  const imagePathRegex = /\/.+\.(png|jpg|jpeg|gif|bmp)/g;
+  imagePaths = selectionText.match(imagePathRegex);
+  if (imagePaths) {
+    const imageTags = createImageTag(imagePaths);
+    copyImageTag(imageTags);
+  } else {
+    alert(`テキストが選択されていないか形式が間違っています。\n選択されたテキスト\n${selectionText}\n\n正しい例\n![xxx](/uploads/xxxxxxxxxx/xxx.png)`);
+  }
 
-  function createImageTag() {
-    if (imageUrl) {
-      const imageTag = `${baseTag1}${imageUrl[0]}${baseTag2}`;
-      if(navigator.clipboard) {
-        setTimeout((async() => {
-          await navigator.clipboard.writeText(imageTag);
-          alert(`以下のテキストがコピーされました！\n${imageTag}`);
-        }), 200);
-      }
-    } else {
-      alert(`タグが選択されていないか形式が間違っています。\n選択されたテキスト\n${uploadedImageUrl}\n\n正しい例\n![xxx](/uploads/xxxxxxxxxx/xxx.png)`);
-    }
+  function createImageTag(imagePaths) {
+    const baseTag1 = '<img src="';
+    const baseTag2 = '" height="420px">';
+    return imagePaths.map(path => `${baseTag1}${path}${baseTag2}`);
+  }
+
+  function copyImageTag(imageTags) {
+    imageTagText = imageTags.join("\n\n");
+    (async () => {
+      await navigator.clipboard.writeText(imageTagText);
+      alert(`以下のテキストがコピーされました！\n${imageTagText}`);
+    })();
   }
 })();
 ```
