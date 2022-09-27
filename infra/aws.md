@@ -1,3 +1,15 @@
+## IAM
+IAM Policyは できること/できないこと を定義し、UserやRoleに紐づけて使う
+IAM Userは、Policyを紐付けて、ユーザーができることを定義する
+IAM Roleは、Policyを紐付けて、誰か/AWSのサービス ができることを定義する
+
+AWS初心者にIAM Policy/User/Roleについてざっくり説明する | DevelopersIO
+https://dev.classmethod.jp/articles/iam-policy-user-role-for-primary-of-aws/
+
+図がわかりやすい
+IAMのスイッチロールとは？ AWSアカウント間の切り替えを楽にする設定方法￼ - ベアサポート ブログ
+https://baresupport.jp/blog/2022/05/12/113/
+
 ## AMI
 Amazon Machine Image
 
