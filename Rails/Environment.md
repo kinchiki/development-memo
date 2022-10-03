@@ -33,6 +33,70 @@ reference
 1. `PCのIPアドレス:3000`を直打ち
 
 
+## rmagick, ruby-filemagic error 2022/10/03
+### 解決策
+```sh
+$ brew install imagemagick@6 pkg-config libmagic
+# export PATH="/usr/local/opt/imagemagick@6/bin:$PATH" 以下2つだけでよい？
+$ export LDFLAGS="-L/usr/local/opt/imagemagick@6/lib"
+$ export CPPFLAGS="-I/usr/local/opt/imagemagick@6/include"
+```
+### error
+```sh
+Installing rmagick 4.2.2 with native extensions
+Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    current directory: /Users/akito.mizuno/src/mj/mj2/vendor/bundle/ruby/2.5.0/gems/rmagick-4.2.2/ext/RMagick
+/Users/akito.mizuno/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20221003-85337-1bdy2q7.rb extconf.rb
+checking for brew... yes
+checking for Ruby version >= 2.3.0... yes
+checking for pkg-config... yes
+Package MagickCore was not found in the pkg-config search path.
+Perhaps you should add the directory containing `MagickCore.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'MagickCore' found
+
+
+ERROR: Can't install RMagick 4.2.2.
+Can't find the ImageMagick library or one of the dependent libraries.
+Check the mkmf.log file for more detailed information.
+
+
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/Users/akito.mizuno/.rbenv/versions/2.5.1/bin/$(RUBY_BASE_NAME)
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/akito.mizuno/src/mj/mj2/vendor/bundle/ruby/2.5.0/extensions/x86_64-darwin-21/2.5.0/rmagick-4.2.2/mkmf.log
+
+extconf failed, exit code 1
+
+Gem files will remain installed in /Users/akito.mizuno/src/mj/mj2/vendor/bundle/ruby/2.5.0/gems/rmagick-4.2.2 for inspection.
+Results logged to /Users/akito.mizuno/src/mj/mj2/vendor/bundle/ruby/2.5.0/extensions/x86_64-darwin-21/2.5.0/rmagick-4.2.2/gem_make.out
+
+An error occurred while installing rmagick (4.2.2), and Bundler cannot continue.
+Make sure that `gem install rmagick -v '4.2.2' --source 'https://rubygems.org/'` succeeds before bundling.
+```
+
+```sh
+An error occurred while installing ruby-filemagic (0.7.2), and Bundler cannot continue.
+```
+
 ## Nokogiri Error
 公式ページに解決方法が載っているのでそれを見る。
 [Installing Nokogiri - Nokogiri 鋸](http://www.nokogiri.org/tutorials/installing_nokogiri.html)
