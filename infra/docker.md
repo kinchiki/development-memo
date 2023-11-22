@@ -31,13 +31,13 @@ https://matsuand.github.io/docs.docker.jp.onthefly/storage/
 - ボリュームはホストの `/var/lib/docker/volumes/` に保存される
     - macだとVM上でDockerが動いているため参照できないらしい
 - できるだけ名前つきボリュームを使う
-    - `docker run --mount type=volume, src=name, dst=/hoge ...` みたいなやつ
+    - `docker run --mount type=volume,src=name,dst=/hoge ...` みたいなやつ
         - 古い書き方だと `docker run -v name:/hoge ...` みたいなやつ
     - 匿名ボリュームはコンテナが消えると削除される
         - `docker run -v /hoge ...` みたいなやつ
 - バインドマウントは、ソースコードなどを即時共有したいときだけ使うようにする
     - つまり、開発環境用である
-    - `docker run --mount type=bind, src=., dst=/hoge ...` みたいなやつ
+    - `docker run --mount type=bind,src=.,dst=/hoge ...` みたいなやつ
         - `src` はバインドマウントの場合はホスト側のディレクトリ
         - `dst` はコンテナ側のディレクトリ
         - 古い書き方だと `docker run -v ./data:/hoge  ...` みたいなやつ
