@@ -43,3 +43,21 @@ https://matsuand.github.io/docs.docker.jp.onthefly/storage/
         - 古い書き方だと `docker run -v ./data:/hoge  ...` みたいなやつ
 - `--volumes-from <コンテナ名>` とすると、指定したコンテナのマウントと同じようにマウントする
 
+### docker-composeの場合
+```yaml
+# ...
+
+volumes:
+      - type: bind # バインドマウント
+        source: .
+        target: /app
+      - type: volume # ホストにマウントされる
+        source: bundle-volume # ボリュームの名前
+        target: /usr/local/bundle # コンテナ側の対象ディレクトリ
+
+# ...
+
+volumes:
+  bundle-volume:
+    driver: local
+```
