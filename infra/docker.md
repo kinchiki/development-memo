@@ -48,12 +48,12 @@ https://matsuand.github.io/docs.docker.jp.onthefly/storage/
 # ...
 
 volumes:
-      - type: bind # バインドマウント
-        source: .
-        target: /app
-      - type: volume # ホストにマウントされる
-        source: bundle-volume # ボリュームの名前
-        target: /usr/local/bundle # コンテナ側の対象ディレクトリ
+  - type: bind # バインドマウント
+    source: .
+    target: /app
+  - type: volume # ホストにマウントされる
+    source: bundle-volume # ボリュームの名前
+    target: /usr/local/bundle # コンテナ側の対象ディレクトリ
 
 # ...
 
