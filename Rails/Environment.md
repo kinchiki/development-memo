@@ -1,3 +1,8 @@
+## bundle install の mysql2 のエラー
+
+https://qiita.com/P-man_Brown/items/bb525958f361af39a472
+
+
 ## An error occurred while installing ffi
 how to resolve
 
